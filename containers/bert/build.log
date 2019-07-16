@@ -1,0 +1,395 @@
+Sending build context to Docker daemon   2.56kB
+Step 1/6 : FROM pytorch/pytorch:latest
+ ---> e19f3b87dbf3
+Step 2/6 : RUN git clone https://github.com/NVIDIA/apex.git
+ ---> Using cache
+ ---> 09db7a0e6ec9
+Step 3/6 : WORKDIR /workspace/apex
+ ---> Using cache
+ ---> b12a2569d33b
+Step 4/6 : RUN pip install -v --no-cache-dir ./
+ ---> Running in 7bec85076010
+Created temporary directory: /tmp/pip-ephem-wheel-cache-xfva5dqr
+Created temporary directory: /tmp/pip-req-tracker-shhcyavb
+Created requirements tracker '/tmp/pip-req-tracker-shhcyavb'
+Created temporary directory: /tmp/pip-install-keiyqyh3
+Processing /workspace/apex
+  Created temporary directory: /tmp/pip-req-build-m6_2mn6k
+  Added file:///workspace/apex to build tracker '/tmp/pip-req-tracker-shhcyavb'
+    Running setup.py (path:/tmp/pip-req-build-m6_2mn6k/setup.py) egg_info for package from file:///workspace/apex
+    Running command python setup.py egg_info
+
+    Warning: Torch did not find available GPUs on this system.
+     If your intention is to cross-compile, this is not an error.
+
+    torch.__version__  =  1.0.1.post2
+    running egg_info
+    creating pip-egg-info/apex.egg-info
+    writing pip-egg-info/apex.egg-info/PKG-INFO
+    writing dependency_links to pip-egg-info/apex.egg-info/dependency_links.txt
+    writing top-level names to pip-egg-info/apex.egg-info/top_level.txt
+    writing manifest file 'pip-egg-info/apex.egg-info/SOURCES.txt'
+    reading manifest file 'pip-egg-info/apex.egg-info/SOURCES.txt'
+    writing manifest file 'pip-egg-info/apex.egg-info/SOURCES.txt'
+  Source in /tmp/pip-req-build-m6_2mn6k has version 0.1, which satisfies requirement apex==0.1 from file:///workspace/apex
+  Removed apex==0.1 from file:///workspace/apex from build tracker '/tmp/pip-req-tracker-shhcyavb'
+Installing collected packages: apex
+  Created temporary directory: /tmp/pip-record-y99_2jch
+  Running setup.py install for apex: started
+    Running command /opt/conda/bin/python -u -c "import setuptools, tokenize;__file__='/tmp/pip-req-build-m6_2mn6k/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /tmp/pip-record-y99_2jch/install-record.txt --single-version-externally-managed --compile
+
+    Warning: Torch did not find available GPUs on this system.
+     If your intention is to cross-compile, this is not an error.
+
+    torch.__version__  =  1.0.1.post2
+    running install
+    running build
+    running build_py
+    creating build
+    creating build/lib
+    creating build/lib/apex
+    copying apex/__init__.py -> build/lib/apex
+    creating build/lib/apex/optimizers
+    copying apex/optimizers/fp16_optimizer.py -> build/lib/apex/optimizers
+    copying apex/optimizers/__init__.py -> build/lib/apex/optimizers
+    copying apex/optimizers/fused_adam.py -> build/lib/apex/optimizers
+    creating build/lib/apex/amp
+    copying apex/amp/_process_optimizer.py -> build/lib/apex/amp
+    copying apex/amp/opt.py -> build/lib/apex/amp
+    copying apex/amp/utils.py -> build/lib/apex/amp
+    copying apex/amp/amp.py -> build/lib/apex/amp
+    copying apex/amp/rnn_compat.py -> build/lib/apex/amp
+    copying apex/amp/wrap.py -> build/lib/apex/amp
+    copying apex/amp/handle.py -> build/lib/apex/amp
+    copying apex/amp/_initialize.py -> build/lib/apex/amp
+    copying apex/amp/__version__.py -> build/lib/apex/amp
+    copying apex/amp/frontend.py -> build/lib/apex/amp
+    copying apex/amp/__init__.py -> build/lib/apex/amp
+    copying apex/amp/compat.py -> build/lib/apex/amp
+    copying apex/amp/_amp_state.py -> build/lib/apex/amp
+    copying apex/amp/scaler.py -> build/lib/apex/amp
+    creating build/lib/apex/multi_tensor_apply
+    copying apex/multi_tensor_apply/multi_tensor_apply.py -> build/lib/apex/multi_tensor_apply
+    copying apex/multi_tensor_apply/__init__.py -> build/lib/apex/multi_tensor_apply
+    creating build/lib/apex/reparameterization
+    copying apex/reparameterization/__init__.py -> build/lib/apex/reparameterization
+    copying apex/reparameterization/reparameterization.py -> build/lib/apex/reparameterization
+    copying apex/reparameterization/weight_norm.py -> build/lib/apex/reparameterization
+    creating build/lib/apex/normalization
+    copying apex/normalization/fused_layer_norm.py -> build/lib/apex/normalization
+    copying apex/normalization/__init__.py -> build/lib/apex/normalization
+    creating build/lib/apex/parallel
+    copying apex/parallel/distributed.py -> build/lib/apex/parallel
+    copying apex/parallel/sync_batchnorm.py -> build/lib/apex/parallel
+    copying apex/parallel/multiproc.py -> build/lib/apex/parallel
+    copying apex/parallel/__init__.py -> build/lib/apex/parallel
+    copying apex/parallel/optimized_sync_batchnorm_kernel.py -> build/lib/apex/parallel
+    copying apex/parallel/optimized_sync_batchnorm.py -> build/lib/apex/parallel
+    copying apex/parallel/sync_batchnorm_kernel.py -> build/lib/apex/parallel
+    copying apex/parallel/LARC.py -> build/lib/apex/parallel
+    creating build/lib/apex/fp16_utils
+    copying apex/fp16_utils/fp16_optimizer.py -> build/lib/apex/fp16_utils
+    copying apex/fp16_utils/__init__.py -> build/lib/apex/fp16_utils
+    copying apex/fp16_utils/loss_scaler.py -> build/lib/apex/fp16_utils
+    copying apex/fp16_utils/fp16util.py -> build/lib/apex/fp16_utils
+    creating build/lib/apex/RNN
+    copying apex/RNN/RNNBackend.py -> build/lib/apex/RNN
+    copying apex/RNN/models.py -> build/lib/apex/RNN
+    copying apex/RNN/__init__.py -> build/lib/apex/RNN
+    copying apex/RNN/cells.py -> build/lib/apex/RNN
+    creating build/lib/apex/amp/lists
+    copying apex/amp/lists/functional_overrides.py -> build/lib/apex/amp/lists
+    copying apex/amp/lists/__init__.py -> build/lib/apex/amp/lists
+    copying apex/amp/lists/torch_overrides.py -> build/lib/apex/amp/lists
+    copying apex/amp/lists/tensor_overrides.py -> build/lib/apex/amp/lists
+    running install_lib
+    creating /opt/conda/lib/python3.6/site-packages/apex
+    creating /opt/conda/lib/python3.6/site-packages/apex/optimizers
+    copying build/lib/apex/optimizers/fp16_optimizer.py -> /opt/conda/lib/python3.6/site-packages/apex/optimizers
+    copying build/lib/apex/optimizers/__init__.py -> /opt/conda/lib/python3.6/site-packages/apex/optimizers
+    copying build/lib/apex/optimizers/fused_adam.py -> /opt/conda/lib/python3.6/site-packages/apex/optimizers
+    creating /opt/conda/lib/python3.6/site-packages/apex/amp
+    copying build/lib/apex/amp/_process_optimizer.py -> /opt/conda/lib/python3.6/site-packages/apex/amp
+    copying build/lib/apex/amp/opt.py -> /opt/conda/lib/python3.6/site-packages/apex/amp
+    copying build/lib/apex/amp/utils.py -> /opt/conda/lib/python3.6/site-packages/apex/amp
+    copying build/lib/apex/amp/amp.py -> /opt/conda/lib/python3.6/site-packages/apex/amp
+    copying build/lib/apex/amp/rnn_compat.py -> /opt/conda/lib/python3.6/site-packages/apex/amp
+    copying build/lib/apex/amp/wrap.py -> /opt/conda/lib/python3.6/site-packages/apex/amp
+    copying build/lib/apex/amp/handle.py -> /opt/conda/lib/python3.6/site-packages/apex/amp
+    copying build/lib/apex/amp/_initialize.py -> /opt/conda/lib/python3.6/site-packages/apex/amp
+    copying build/lib/apex/amp/__version__.py -> /opt/conda/lib/python3.6/site-packages/apex/amp
+    copying build/lib/apex/amp/frontend.py -> /opt/conda/lib/python3.6/site-packages/apex/amp
+    copying build/lib/apex/amp/__init__.py -> /opt/conda/lib/python3.6/site-packages/apex/amp
+    copying build/lib/apex/amp/compat.py -> /opt/conda/lib/python3.6/site-packages/apex/amp
+    creating /opt/conda/lib/python3.6/site-packages/apex/amp/lists
+    copying build/lib/apex/amp/lists/functional_overrides.py -> /opt/conda/lib/python3.6/site-packages/apex/amp/lists
+    copying build/lib/apex/amp/lists/__init__.py -> /opt/conda/lib/python3.6/site-packages/apex/amp/lists
+    copying build/lib/apex/amp/lists/torch_overrides.py -> /opt/conda/lib/python3.6/site-packages/apex/amp/lists
+    copying build/lib/apex/amp/lists/tensor_overrides.py -> /opt/conda/lib/python3.6/site-packages/apex/amp/lists
+    copying build/lib/apex/amp/_amp_state.py -> /opt/conda/lib/python3.6/site-packages/apex/amp
+    copying build/lib/apex/amp/scaler.py -> /opt/conda/lib/python3.6/site-packages/apex/amp
+    copying build/lib/apex/__init__.py -> /opt/conda/lib/python3.6/site-packages/apex
+    creating /opt/conda/lib/python3.6/site-packages/apex/multi_tensor_apply
+    copying build/lib/apex/multi_tensor_apply/multi_tensor_apply.py -> /opt/conda/lib/python3.6/site-packages/apex/multi_tensor_apply
+    copying build/lib/apex/multi_tensor_apply/__init__.py -> /opt/conda/lib/python3.6/site-packages/apex/multi_tensor_apply
+    creating /opt/conda/lib/python3.6/site-packages/apex/reparameterization
+    copying build/lib/apex/reparameterization/__init__.py -> /opt/conda/lib/python3.6/site-packages/apex/reparameterization
+    copying build/lib/apex/reparameterization/reparameterization.py -> /opt/conda/lib/python3.6/site-packages/apex/reparameterization
+    copying build/lib/apex/reparameterization/weight_norm.py -> /opt/conda/lib/python3.6/site-packages/apex/reparameterization
+    creating /opt/conda/lib/python3.6/site-packages/apex/normalization
+    copying build/lib/apex/normalization/fused_layer_norm.py -> /opt/conda/lib/python3.6/site-packages/apex/normalization
+    copying build/lib/apex/normalization/__init__.py -> /opt/conda/lib/python3.6/site-packages/apex/normalization
+    creating /opt/conda/lib/python3.6/site-packages/apex/parallel
+    copying build/lib/apex/parallel/distributed.py -> /opt/conda/lib/python3.6/site-packages/apex/parallel
+    copying build/lib/apex/parallel/sync_batchnorm.py -> /opt/conda/lib/python3.6/site-packages/apex/parallel
+    copying build/lib/apex/parallel/multiproc.py -> /opt/conda/lib/python3.6/site-packages/apex/parallel
+    copying build/lib/apex/parallel/__init__.py -> /opt/conda/lib/python3.6/site-packages/apex/parallel
+    copying build/lib/apex/parallel/optimized_sync_batchnorm_kernel.py -> /opt/conda/lib/python3.6/site-packages/apex/parallel
+    copying build/lib/apex/parallel/optimized_sync_batchnorm.py -> /opt/conda/lib/python3.6/site-packages/apex/parallel
+    copying build/lib/apex/parallel/sync_batchnorm_kernel.py -> /opt/conda/lib/python3.6/site-packages/apex/parallel
+    copying build/lib/apex/parallel/LARC.py -> /opt/conda/lib/python3.6/site-packages/apex/parallel
+    creating /opt/conda/lib/python3.6/site-packages/apex/fp16_utils
+    copying build/lib/apex/fp16_utils/fp16_optimizer.py -> /opt/conda/lib/python3.6/site-packages/apex/fp16_utils
+    copying build/lib/apex/fp16_utils/__init__.py -> /opt/conda/lib/python3.6/site-packages/apex/fp16_utils
+    copying build/lib/apex/fp16_utils/loss_scaler.py -> /opt/conda/lib/python3.6/site-packages/apex/fp16_utils
+    copying build/lib/apex/fp16_utils/fp16util.py -> /opt/conda/lib/python3.6/site-packages/apex/fp16_utils
+    creating /opt/conda/lib/python3.6/site-packages/apex/RNN
+    copying build/lib/apex/RNN/RNNBackend.py -> /opt/conda/lib/python3.6/site-packages/apex/RNN
+    copying build/lib/apex/RNN/models.py -> /opt/conda/lib/python3.6/site-packages/apex/RNN
+    copying build/lib/apex/RNN/__init__.py -> /opt/conda/lib/python3.6/site-packages/apex/RNN
+    copying build/lib/apex/RNN/cells.py -> /opt/conda/lib/python3.6/site-packages/apex/RNN
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/optimizers/fp16_optimizer.py to fp16_optimizer.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/optimizers/__init__.py to __init__.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/optimizers/fused_adam.py to fused_adam.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/amp/_process_optimizer.py to _process_optimizer.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/amp/opt.py to opt.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/amp/utils.py to utils.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/amp/amp.py to amp.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/amp/rnn_compat.py to rnn_compat.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/amp/wrap.py to wrap.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/amp/handle.py to handle.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/amp/_initialize.py to _initialize.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/amp/__version__.py to __version__.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/amp/frontend.py to frontend.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/amp/__init__.py to __init__.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/amp/compat.py to compat.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/amp/lists/functional_overrides.py to functional_overrides.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/amp/lists/__init__.py to __init__.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/amp/lists/torch_overrides.py to torch_overrides.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/amp/lists/tensor_overrides.py to tensor_overrides.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/amp/_amp_state.py to _amp_state.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/amp/scaler.py to scaler.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/__init__.py to __init__.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/multi_tensor_apply/multi_tensor_apply.py to multi_tensor_apply.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/multi_tensor_apply/__init__.py to __init__.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/reparameterization/__init__.py to __init__.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/reparameterization/reparameterization.py to reparameterization.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/reparameterization/weight_norm.py to weight_norm.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/normalization/fused_layer_norm.py to fused_layer_norm.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/normalization/__init__.py to __init__.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/parallel/distributed.py to distributed.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/parallel/sync_batchnorm.py to sync_batchnorm.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/parallel/multiproc.py to multiproc.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/parallel/__init__.py to __init__.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/parallel/optimized_sync_batchnorm_kernel.py to optimized_sync_batchnorm_kernel.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/parallel/optimized_sync_batchnorm.py to optimized_sync_batchnorm.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/parallel/sync_batchnorm_kernel.py to sync_batchnorm_kernel.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/parallel/LARC.py to LARC.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/fp16_utils/fp16_optimizer.py to fp16_optimizer.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/fp16_utils/__init__.py to __init__.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/fp16_utils/loss_scaler.py to loss_scaler.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/fp16_utils/fp16util.py to fp16util.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/RNN/RNNBackend.py to RNNBackend.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/RNN/models.py to models.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/RNN/__init__.py to __init__.cpython-36.pyc
+    byte-compiling /opt/conda/lib/python3.6/site-packages/apex/RNN/cells.py to cells.cpython-36.pyc
+    running install_egg_info
+    running egg_info
+    creating apex.egg-info
+    writing apex.egg-info/PKG-INFO
+    writing dependency_links to apex.egg-info/dependency_links.txt
+    writing top-level names to apex.egg-info/top_level.txt
+    writing manifest file 'apex.egg-info/SOURCES.txt'
+    reading manifest file 'apex.egg-info/SOURCES.txt'
+    writing manifest file 'apex.egg-info/SOURCES.txt'
+    Copying apex.egg-info to /opt/conda/lib/python3.6/site-packages/apex-0.1-py3.6.egg-info
+    running install_scripts
+    writing list of installed files to '/tmp/pip-record-y99_2jch/install-record.txt'
+    Running setup.py install for apex: finished with status 'done'
+  Removing source in /tmp/pip-req-build-m6_2mn6k
+Successfully installed apex-0.1
+Cleaning up...
+Removed build tracker '/tmp/pip-req-tracker-shhcyavb'
+1 location(s) to search for versions of pip:
+* https://pypi.org/simple/pip/
+Getting page https://pypi.org/simple/pip/
+Starting new HTTPS connection (1): pypi.org:443
+https://pypi.org:443 "GET /simple/pip/ HTTP/1.1" 200 11244
+Analyzing links from page https://pypi.org/simple/pip/
+  Found link https://files.pythonhosted.org/packages/3d/9d/1e313763bdfb6a48977b65829c6ce2a43eaae29ea2f907c8bbef024a7219/pip-0.2.tar.gz#sha256=88bb8d029e1bf4acd0e04d300104b7440086f94cc1ce1c5c3c31e3293aee1f81 (from https://pypi.org/simple/pip/), version: 0.2
+  Found link https://files.pythonhosted.org/packages/18/ad/c0fe6cdfe1643a19ef027c7168572dac6283b80a384ddf21b75b921877da/pip-0.2.1.tar.gz#sha256=83522005c1266cc2de97e65072ff7554ac0f30ad369c3b02ff3a764b962048da (from https://pypi.org/simple/pip/), version: 0.2.1
+  Found link https://files.pythonhosted.org/packages/17/05/f66144ef69b436d07f8eeeb28b7f77137f80de4bf60349ec6f0f9509e801/pip-0.3.tar.gz#sha256=183c72455cb7f8860ac1376f8c4f14d7f545aeab8ee7c22cd4caf79f35a2ed47 (from https://pypi.org/simple/pip/), version: 0.3
+  Found link https://files.pythonhosted.org/packages/0a/bb/d087c9a1415f8726e683791c0b2943c53f2b76e69f527f2e2b2e9f9e7b5c/pip-0.3.1.tar.gz#sha256=34ce534f17065c78f980702928e988a6b6b2d8a9851aae5f1571a1feb9bb58d8 (from https://pypi.org/simple/pip/), version: 0.3.1
+  Found link https://files.pythonhosted.org/packages/cf/c3/153571aaac6cf999f4bb09c019b1ff379b7b599ea833813a41c784eec995/pip-0.4.tar.gz#sha256=28fc67558874f71fddda7168f73595f1650523dce3bc5bf189713ecdfc1e456e (from https://pypi.org/simple/pip/), version: 0.4
+  Found link https://files.pythonhosted.org/packages/8d/c7/f05c87812fa5d9562ecbc5f4f1fc1570444f53c81c834a7f662af406e3c1/pip-0.5.tar.gz#sha256=328d8412782f22568508a0d0c78a49c9920a82e44c8dfca49954fe525c152b2a (from https://pypi.org/simple/pip/), version: 0.5
+  Found link https://files.pythonhosted.org/packages/9a/aa/f536b6d14fe03343367da2ff44eee28f340ae650cd017ca088b6be13084a/pip-0.5.1.tar.gz#sha256=e27650538c41fe1007a41abd4cfd0f905b822622cbe1f8e7e09d1215af207694 (from https://pypi.org/simple/pip/), version: 0.5.1
+  Found link https://files.pythonhosted.org/packages/db/e6/fdf7be8a17b032c533d3f91e91e2c63dd81d3627cbe4113248a00c2d39d8/pip-0.6.tar.gz#sha256=4cf47db6815b2f435d1f44e1f35ff04823043f6161f7df9aec71a123b0c47f0d (from https://pypi.org/simple/pip/), version: 0.6
+  Found link https://files.pythonhosted.org/packages/91/cd/105f4d3c75d0ae18e12623acc96f42168aaba408dd6e43c4505aa21f8e37/pip-0.6.1.tar.gz#sha256=efe47e84ffeb0ea4804f9858b8a94bebd07f5452f907ebed36d03aed06a9f9ec (from https://pypi.org/simple/pip/), version: 0.6.1
+  Found link https://files.pythonhosted.org/packages/1c/c7/c0e1a9413c37828faf290f29a85a4d6034c145cc04bf1622ba8beb662ad8/pip-0.6.2.tar.gz#sha256=1c1a504d7e70d2c24246f95bd16e3d5fcec740fd144df69a407bf65a2ee67586 (from https://pypi.org/simple/pip/), version: 0.6.2
+  Found link https://files.pythonhosted.org/packages/3f/af/c4b9d49fb0f286996b28dbc0955c3ad359794697eb98e0e69863908070b0/pip-0.6.3.tar.gz#sha256=1a6df71eb29b98cba11bde6d6a0d8c6dd8b0518e74ceb71fb31ea4fbb42fd313 (from https://pypi.org/simple/pip/), version: 0.6.3
+  Found link https://files.pythonhosted.org/packages/ec/7a/6fe91ff0079ad0437830957c459d52f3923e516f5b453218f2a93d09a427/pip-0.7.tar.gz#sha256=ceaea0b9e494d893c8a191895301b79c1db33e41f14d3ad93e3d28a8b4e9bf27 (from https://pypi.org/simple/pip/), version: 0.7
+  Found link https://files.pythonhosted.org/packages/a5/63/11303863c2f5e9d9a15d89fcf7513a4b60987007d418862e0fb65c09fff7/pip-0.7.1.tar.gz#sha256=f54f05aa17edd0036de433c44892c8fedb1fd2871c97829838feb995818d24c3 (from https://pypi.org/simple/pip/), version: 0.7.1
+  Found link https://files.pythonhosted.org/packages/cd/a9/1debaa96bbc1005c1c8ad3b79fec58c198d35121546ea2e858ce0894268a/pip-0.7.2.tar.gz#sha256=98df2eb779358412bbbae75980171ae85deebc846d87e244d086520b1212da09 (from https://pypi.org/simple/pip/), version: 0.7.2
+  Found link https://files.pythonhosted.org/packages/74/54/f785c327fb3d163560a879b36edae5c78ee07806be282c9d4807f6be7dd1/pip-0.8.tar.gz#sha256=9017e4484a212dd4e1a43dd9f039dd7fc8338d4eea1c339d5ae1c80726de5b0f (from https://pypi.org/simple/pip/), version: 0.8
+  Found link https://files.pythonhosted.org/packages/5c/79/5e8381cc3078bae92166f2ba96de8355e8c181926505ba8882f7b099a500/pip-0.8.1.tar.gz#sha256=7176a87f35675f6468341212f3b959bb51d23ea66eb1c3692bf746c45c716fa2 (from https://pypi.org/simple/pip/), version: 0.8.1
+  Found link https://files.pythonhosted.org/packages/17/3e/0a98ab032991518741e7e712a719633e6ae160f51b3d3e855194530fd308/pip-0.8.2.tar.gz#sha256=f80a3549c048bc3bbcb47844826e9c7c6fcd87e77b92bef0d9e66d1b397c4962 (from https://pypi.org/simple/pip/), version: 0.8.2
+  Found link https://files.pythonhosted.org/packages/f7/9a/943fc6d879ed7220bac2e7e53096bfe78abec88d77f2f516400e0129679e/pip-0.8.3.tar.gz#sha256=1be2e18edd38aa75b5e4ef38a99ec33ba9247177cfcb4a6d2d2b3e73430e3001 (from https://pypi.org/simple/pip/), version: 0.8.3
+  Found link https://files.pythonhosted.org/packages/24/33/6eb675fb6db7b71d69d6928b33dea61b8bf5cfe1e5649be70ec84ce2fc09/pip-1.0.tar.gz#sha256=34ba07e2d14ba86d5088ba896ac80bed845a9b276ab8acb279b8d99bc77fec8e (from https://pypi.org/simple/pip/), version: 1.0
+  Found link https://files.pythonhosted.org/packages/10/d9/f584e6107ef98ad7eaaaa5d0f756bfee12561fa6a4712ffdb7209e0e1fd4/pip-1.0.1.tar.gz#sha256=37d2f18213d3845d2038dd3686bc71fc12bb41ad66c945a8b0dfec2879f3497b (from https://pypi.org/simple/pip/), version: 1.0.1
+  Found link https://files.pythonhosted.org/packages/16/90/5e6f80364d8a656f60681dfb7330298edef292d43e1499bcb3a4c71ff0b9/pip-1.0.2.tar.gz#sha256=a6ed9b36aac2f121c01a2c9e0307a9e4d9438d100a407db701ac65479a3335d2 (from https://pypi.org/simple/pip/), version: 1.0.2
+  Found link https://files.pythonhosted.org/packages/25/57/0d42cf5307d79913a082c5c4397d46f3793bc35e1138a694136d6e31be99/pip-1.1.tar.gz#sha256=993804bb947d18508acee02141281c77d27677f8c14eaa64d6287a1c53ef01c8 (from https://pypi.org/simple/pip/), version: 1.1
+  Found link https://files.pythonhosted.org/packages/ba/c3/4e1f892f41aaa217fe0d1f827fa05928783349c69f3cc06fdd68e112678a/pip-1.2.tar.gz#sha256=2b168f1987403f1dc6996a1f22a6f6637b751b7ab6ff27e78380b8d6e70aa314 (from https://pypi.org/simple/pip/), version: 1.2
+  Found link https://files.pythonhosted.org/packages/c3/a2/a63244da32afd9ce9a8ca1bd86e71610039adea8b8314046ebe5047527a6/pip-1.2.1.tar.gz#sha256=12a9302acfca62cdc7bc5d83386cac3e0581db61ac39acdb3a4e766a16b88eb1 (from https://pypi.org/simple/pip/), version: 1.2.1
+  Found link https://files.pythonhosted.org/packages/00/45/69d4f2602b80550bfb26cfd2f62c2f05b3b5c7352705d3766cd1e5b27648/pip-1.3.tar.gz#sha256=d6a13c5be316cb21a0243047c7f163f47e88973ebccff8d32e63ca1bf4d9321c (from https://pypi.org/simple/pip/), version: 1.3
+  Found link https://files.pythonhosted.org/packages/5b/ce/f5b98104f1c10d868936c25f7c597f492d4371aa9ad5fb61a94954ee7208/pip-1.3.1.tar.gz#sha256=145eaa5d1ea1b062663da1f3a97780d7edea4c63c68a37c463b1deedf7bb4957 (from https://pypi.org/simple/pip/), version: 1.3.1
+  Found link https://files.pythonhosted.org/packages/5f/d0/3b3958f6a58783bae44158b2c4c7827ae89abaecdd4bed12cff402620b9a/pip-1.4.tar.gz#sha256=1fd43cbf07d95ddcecbb795c97a1674b3ddb711bb4a67661284a5aa765aa1b97 (from https://pypi.org/simple/pip/), version: 1.4
+  Found link https://files.pythonhosted.org/packages/3f/f8/da390e0df72fb61d176b25a4b95262e3dcc14bda0ad25ac64d56db38b667/pip-1.4.1.tar.gz#sha256=4e7a06554711a624c35d0c646f63674b7f6bfc7f80221bf1eb1f631bd890d04e (from https://pypi.org/simple/pip/), version: 1.4.1
+  Found link https://files.pythonhosted.org/packages/4f/7d/e53bc80667378125a9e07d4929a61b0bd7128a1129dbe6f07bb3228652a3/pip-1.5.tar.gz#sha256=25f81d1a0e55d3b1709818dd57fdfb954b028f229f09bd69cb0bc80a8e03e048 (from https://pypi.org/simple/pip/), version: 1.5
+  Found link https://files.pythonhosted.org/packages/44/5d/1dca53b5de6d287e7eb99bd174bb022eb6cb0d6ca6e19ca6b16655dde8c2/pip-1.5.1-py2.py3-none-any.whl#sha256=00960db3b0b8724dd37fe37cfb9c72ecb8f59fab9db7d17c5c1e89a1adab49ce (from https://pypi.org/simple/pip/), version: 1.5.1
+  Found link https://files.pythonhosted.org/packages/21/3f/d86a600c9b2f41a75caacf768a24130f343def97652de2345da15ef7911f/pip-1.5.1.tar.gz#sha256=e60e936fbc101d56668c6134c1f2b5b40fcbec8b4fc4ca7fc34842b6b4c5c130 (from https://pypi.org/simple/pip/), version: 1.5.1
+  Found link https://files.pythonhosted.org/packages/3d/1f/227d77d5e9ed2df5162de4ba3616799a351eccb1ecd668ae824dd26153a1/pip-1.5.2-py2.py3-none-any.whl#sha256=6903909ccdcdbc3297b74118590e71344d6d262827acd1f5c0e2fcfce9807499 (from https://pypi.org/simple/pip/), version: 1.5.2
+  Found link https://files.pythonhosted.org/packages/ed/94/391a003107f6ec997c314199d03bff1c105af758ee490e3255353574487b/pip-1.5.2.tar.gz#sha256=2a8a3e08e652d3a40edbb39264bf01f8ff3c32520a79113357cca1f30533f738 (from https://pypi.org/simple/pip/), version: 1.5.2
+  Found link https://files.pythonhosted.org/packages/df/e9/bdb53d44fad1465b43edaf6bc7dd3027ed5af81405cc97603fdff0721ebb/pip-1.5.3-py2.py3-none-any.whl#sha256=f0037aed3ce6cf96b9e9117d42e967a74bea9ebe19088a2fdea5de93d5762fee (from https://pypi.org/simple/pip/), version: 1.5.3
+  Found link https://files.pythonhosted.org/packages/55/de/671a48ad313c808623041fc475f7c8f7610401d9f573f06b40eeb84e74e3/pip-1.5.3.tar.gz#sha256=dc53b4d28b88556a37cd73052b6d1d08cc644c6724e37c4d38a2e3c03c5440b2 (from https://pypi.org/simple/pip/), version: 1.5.3
+  Found link https://files.pythonhosted.org/packages/a9/9a/9aa19fe00de4c025562e5fb3796ff8520165a7dd1a5662c6ec9816e1ae99/pip-1.5.4-py2.py3-none-any.whl#sha256=fb7282556a42e84464f2e963a859ac4012d8134ba6218b70c1d82d145fcfa82f (from https://pypi.org/simple/pip/), version: 1.5.4
+  Found link https://files.pythonhosted.org/packages/78/d8/6e58a7130d457edadb753a0ea5708e411c100c7e94e72ad4802feeef735c/pip-1.5.4.tar.gz#sha256=70208a250bb4afdbbdd74c3ac35d4ab9ba1eb6852d02567a6a87f2f5104e30b9 (from https://pypi.org/simple/pip/), version: 1.5.4
+  Found link https://files.pythonhosted.org/packages/ce/c2/10d996b9c51b126a9f0bb9e14a9edcdd5c88888323c0685bb9b392b6c47c/pip-1.5.5-py2.py3-none-any.whl#sha256=fe7a5808190067b2598d85def9b83db46e5d64a00848ad843e107c36e1db4ae6 (from https://pypi.org/simple/pip/), version: 1.5.5
+  Found link https://files.pythonhosted.org/packages/88/01/a442fde40bd9aaf837612536f16ab751fac628807fd718690795b8ade77d/pip-1.5.5.tar.gz#sha256=4b7f5124364ae9b5ba833dcd8813a84c1c06fba1d7c8543323c7af4b33188eca (from https://pypi.org/simple/pip/), version: 1.5.5
+  Found link https://files.pythonhosted.org/packages/3f/08/7347ca4021e7fe0f1ab8f93cbc7d2a7a7350012300ad0e0227d55625e2b8/pip-1.5.6-py2.py3-none-any.whl#sha256=fbc1351ffedf09ca7560428758845a88d648b9730b63ce9e5df53a7c89f039a4 (from https://pypi.org/simple/pip/), version: 1.5.6
+  Found link https://files.pythonhosted.org/packages/45/db/4fb9a456b4ec4d3b701456ef562b9d72d76b6358e0c1463d17db18c5b772/pip-1.5.6.tar.gz#sha256=b1a4ae66baf21b7eb05a5e4f37c50c2706fa28ea1f8780ce8efe14dcd9f1726c (from https://pypi.org/simple/pip/), version: 1.5.6
+  Found link https://files.pythonhosted.org/packages/dc/7c/21191b5944b917b66e4e4e06d74f668d814b6e8a3ff7acd874479b6f6b3d/pip-6.0-py2.py3-none-any.whl#sha256=5ec6732505bd8be49fe1f8ad557b88253ffb085736396df4d6bea753fc2a8f2c (from https://pypi.org/simple/pip/), version: 6.0
+  Found link https://files.pythonhosted.org/packages/38/fd/065c66a88398f240e344fdf496b9707f92d75f88eedc3d10ff847b28a657/pip-6.0.tar.gz#sha256=6103897f1bb68d3f933edd60f3e3830c4ea6b8abf7a4b500db148921b11f6c9b (from https://pypi.org/simple/pip/), version: 6.0
+  Found link https://files.pythonhosted.org/packages/e9/7a/cdbc1a12ed52410d557e48d4646f4543e9e991ff32d2374dc6db849aa617/pip-6.0.1-py2.py3-none-any.whl#sha256=322aea7d1f7b9ee68ad87ac4704cad5df97f77e70668c0bd18f964c5daa78173 (from https://pypi.org/simple/pip/), version: 6.0.1
+  Found link https://files.pythonhosted.org/packages/4d/c3/8675b90cd89b9b222062f4f6c7e9d48b0387f5b35cbf747a74403a883e56/pip-6.0.1.tar.gz#sha256=fa2f7c68da4a405d673aa38542f9df009d60026db4f532429ac9cbfbda1f959d (from https://pypi.org/simple/pip/), version: 6.0.1
+  Found link https://files.pythonhosted.org/packages/71/3c/b5a521e5e99cfff091e282231591f21193fd80de079ec5fb8ed9c6614044/pip-6.0.2-py2.py3-none-any.whl#sha256=7d17b0f267f7c9cd17cd2924bbbe2b4a3d407322c0e09084ca3f1295c1fed50d (from https://pypi.org/simple/pip/), version: 6.0.2
+  Found link https://files.pythonhosted.org/packages/4c/5a/f9e8e3de0153282c7cb54a9b991af225536ac914bac858ca664cf883bb3e/pip-6.0.2.tar.gz#sha256=6fa90667706a679e3dc75b27a51fddafa64401c45e96f8ae6c20978183290077 (from https://pypi.org/simple/pip/), version: 6.0.2
+  Found link https://files.pythonhosted.org/packages/73/cb/3eebf42003791df29219a3dfa1874572aa16114b44c9b1b0ac66bf96e8c0/pip-6.0.3-py2.py3-none-any.whl#sha256=b72655b6ac6aef1c86dd07f51e8ace8d7aabd6a1c4ff88db87155276fa32a073 (from https://pypi.org/simple/pip/), version: 6.0.3
+  Found link https://files.pythonhosted.org/packages/ce/63/8d99ae60d11ae1a65f5d4fc39a529a598bd3b8e067132210cb0c4d9e9f74/pip-6.0.3.tar.gz#sha256=b091a35f5fa0faffac0b27b97e1e1e93ffe63b463c2ea8dbde0c1fb987933614 (from https://pypi.org/simple/pip/), version: 6.0.3
+  Found link https://files.pythonhosted.org/packages/c5/0e/c974206726542bc495fc7443dd97834a6d14c2f0cba183fcfcd01075225a/pip-6.0.4-py2.py3-none-any.whl#sha256=8dfd95de29a7a3bb1e7d368cc83d566938eb210b04d553ebfe5e3a422f4aec65 (from https://pypi.org/simple/pip/), version: 6.0.4
+  Found link https://files.pythonhosted.org/packages/02/a1/c90f19910ee153d7a0efca7216758121118d7e93084276541383fe9ca82e/pip-6.0.4.tar.gz#sha256=1dbbff9c369e510c7468ab68ba52c003f68f83c99c2f8259acd51099e8799f1e (from https://pypi.org/simple/pip/), version: 6.0.4
+  Found link https://files.pythonhosted.org/packages/e9/1b/c6a375a337fb576784cdea3700f6c3eaf1420f0a01458e6e034cc178a84a/pip-6.0.5-py2.py3-none-any.whl#sha256=b2c20e3a2a43b2bbb1d19ad98be27eccc7b0f0ece016da602ccaa757a862b0e2 (from https://pypi.org/simple/pip/), version: 6.0.5
+  Found link https://files.pythonhosted.org/packages/19/f2/58628768f618c8c9fea878e0fb97730c0b8a838d3ab3f325768bf12dac94/pip-6.0.5.tar.gz#sha256=3bf42d28be9085ab2e9aecfd69a6da2d31563fe833304bf71a620a30c38ab8a2 (from https://pypi.org/simple/pip/), version: 6.0.5
+  Found link https://files.pythonhosted.org/packages/64/fc/4a49ccb18f55a0ceeb76e8d554bd4563217117492997825d194ed0017cc1/pip-6.0.6-py2.py3-none-any.whl#sha256=fb04f8afe1ba57626783f0c8e2f3d46bbaebaa446fcf124f434e968a2fee595e (from https://pypi.org/simple/pip/), version: 6.0.6
+  Found link https://files.pythonhosted.org/packages/f6/ce/d9e4e178b66c766c117f62ddf4fece019ef9d50127a8926d2f60300d615e/pip-6.0.6.tar.gz#sha256=3a14091299dcdb9bab9e9004ae67ac401f2b1b14a7c98de074ca74fdddf4bfa0 (from https://pypi.org/simple/pip/), version: 6.0.6
+  Found link https://files.pythonhosted.org/packages/7a/8e/2bbd4fcf3ee06ee90ded5f39ec12f53165dfdb9ef25a981717ad38a16670/pip-6.0.7-py2.py3-none-any.whl#sha256=93a326304c7db749896bcef822bbbac1ab29dad5651c6d732e245975239890e6 (from https://pypi.org/simple/pip/), version: 6.0.7
+  Found link https://files.pythonhosted.org/packages/52/85/b160ebdaa84378df6bb0176d4eed9f57edca662446174eead7a9e2e566d6/pip-6.0.7.tar.gz#sha256=35a5a43ac6b7af83ed47ea5731a365f43d350a3a7267e039e5f06b61d42ab3c2 (from https://pypi.org/simple/pip/), version: 6.0.7
+  Found link https://files.pythonhosted.org/packages/63/65/55b71647adec1ad595bf0e5d76d028506dfc002df30c256f022ff7a660a5/pip-6.0.8-py2.py3-none-any.whl#sha256=3c22b0a8ff92727bd737a82f72700790591f177541df08c07bc1f90d6b72ac19 (from https://pypi.org/simple/pip/), version: 6.0.8
+  Found link https://files.pythonhosted.org/packages/ef/8a/e3a980bc0a7f791d72c1302f65763ed300f2e14c907ac033e01b44c79e5e/pip-6.0.8.tar.gz#sha256=0d58487a1b7f5be2e5e965c11afbea1dc44ecec8069de03491a4d0d6c85f4551 (from https://pypi.org/simple/pip/), version: 6.0.8
+  Found link https://files.pythonhosted.org/packages/24/fb/8a56a46243514681e569bbafd8146fa383476c4b7c725c8598c452366f31/pip-6.1.0-py2.py3-none-any.whl#sha256=435a018f6d29e34d4f901bf4e6860d8a5fa1816b68d62008c18ca062a306db31 (from https://pypi.org/simple/pip/), version: 6.1.0
+  Found link https://files.pythonhosted.org/packages/6c/84/432eb60bbcb414b9cdfcb135d5f4925e253c74e7d6916ada79990d6cc1a0/pip-6.1.0.tar.gz#sha256=89f120e2ab3d25ab70c36eb28ad4f280fc9ba71736e74d3055f609c1f9173768 (from https://pypi.org/simple/pip/), version: 6.1.0
+  Found link https://files.pythonhosted.org/packages/67/f0/ba0fb41dbdbfc4aa3e0c16b40269aca6b9e3d59cacdb646218aa2e9b1d2c/pip-6.1.1-py2.py3-none-any.whl#sha256=a67e54aa0f26b6d62ccec5cc6735eff205dd0fed075f56ac3d3111e91e4467fc (from https://pypi.org/simple/pip/), version: 6.1.1
+  Found link https://files.pythonhosted.org/packages/bf/85/871c126b50b8ee0b9819e8a63b614aedd264577e73478caedcd447e8f28c/pip-6.1.1.tar.gz#sha256=89f3b626d225e08e7f20d85044afa40f612eb3284484169813dc2d0631f2a556 (from https://pypi.org/simple/pip/), version: 6.1.1
+  Found link https://files.pythonhosted.org/packages/5a/9b/56d3c18d0784d5f2bbd446ea2dc7ffa7476c35e3dc223741d20cfee3b185/pip-7.0.0-py2.py3-none-any.whl#sha256=309c48399c7d68501a10ef206abd6e5c541fedbf84b95435d9063bd454b39df7 (from https://pypi.org/simple/pip/), version: 7.0.0
+  Found link https://files.pythonhosted.org/packages/c6/16/6475b142927ca5d03e3b7968efa5b0edd103e4684ecfde181a25f6fa2505/pip-7.0.0.tar.gz#sha256=7b46bfc1b95494731de306a688e2a7bc056d7fa7ad27e026908fb2ae67fed23d (from https://pypi.org/simple/pip/), version: 7.0.0
+  Found link https://files.pythonhosted.org/packages/5a/10/bb7a32c335bceba636aa673a4c977effa1e73a79f88856459486d8d670cf/pip-7.0.1-py2.py3-none-any.whl#sha256=d26b8573ba1ac1ec99a9bdbdffee2ff2b06c7790815211d0eb4dc1462a089705 (from https://pypi.org/simple/pip/), version: 7.0.1
+  Found link https://files.pythonhosted.org/packages/4a/83/9ae4362a80739657e0c8bb628ea3fa0214a9aba7c8590dacc301ea293f73/pip-7.0.1.tar.gz#sha256=cfec177552fdd0b2d12b72651c8e874f955b4c62c1c2c9f2588cbdc1c0d0d416 (from https://pypi.org/simple/pip/), version: 7.0.1
+  Found link https://files.pythonhosted.org/packages/64/7f/7107800ae0919a80afbf1ecba21b90890431c3ee79d700adac3c79cb6497/pip-7.0.2-py2.py3-none-any.whl#sha256=83c869c5ab7113866e2d69641ec470d47f0faae68ca4550a289a4d3db515ad65 (from https://pypi.org/simple/pip/), version: 7.0.2
+  Found link https://files.pythonhosted.org/packages/75/b1/66532c273bca0133e42c3b4540a1609289f16e3046f1830f18c60794d661/pip-7.0.2.tar.gz#sha256=ba28fa60b573a9444e7b78ccb3b0f261d1f66f46d20403f9dce37b18a6aed405 (from https://pypi.org/simple/pip/), version: 7.0.2
+  Found link https://files.pythonhosted.org/packages/96/76/33a598ae42dd0554207d83c7acc60e3b166dbde723cbf282f1f73b7a127c/pip-7.0.3-py2.py3-none-any.whl#sha256=7b1cb03e827d58d2d05e68ea96a9e27487ed4b0afcd951ac6e40847ce94f0738 (from https://pypi.org/simple/pip/), version: 7.0.3
+  Found link https://files.pythonhosted.org/packages/35/59/5b23115758ba0f2fc465c459611865173ef006202ba83f662d1f58ed2fb8/pip-7.0.3.tar.gz#sha256=b4c598825a6f6dc2cac65968feb28e6be6c1f7f1408493c60a07eaa731a0affd (from https://pypi.org/simple/pip/), version: 7.0.3
+  Found link https://files.pythonhosted.org/packages/f7/c0/9f8dac88326609b4b12b304e8382f64f7d5af7735a00d2fac36cf135fc30/pip-7.1.0-py2.py3-none-any.whl#sha256=80c29f899d3a00a448d65f8158544d22935baec7159af8da1a4fa1490ced481d (from https://pypi.org/simple/pip/), version: 7.1.0
+  Found link https://files.pythonhosted.org/packages/7e/71/3c6ece07a9a885650aa6607b0ebfdf6fc9a3ef8691c44b5e724e4eee7bf2/pip-7.1.0.tar.gz#sha256=d5275ba3221182a5dd1b6bcfbfc5ec277fb399dd23226d6fa018048f7e0f10f2 (from https://pypi.org/simple/pip/), version: 7.1.0
+  Found link https://files.pythonhosted.org/packages/1c/56/094d563c508917081bccff365e4f621ba33073c1c13aca9267a43cfcaf13/pip-7.1.1-py2.py3-none-any.whl#sha256=ce13000878d34c1178af76cb8cf269e232c00508c78ed46c165dd5b0881615f4 (from https://pypi.org/simple/pip/), version: 7.1.1
+  Found link https://files.pythonhosted.org/packages/3b/bb/b3f2a95494fd3f01d3b3ae530e7c0e910dc25e88e30787b0a5e10cbc0640/pip-7.1.1.tar.gz#sha256=b22fe3c93a13fc7c04f145a42fd2ad50a9e3e1b8a7eed2e2b1c66e540a0951da (from https://pypi.org/simple/pip/), version: 7.1.1
+  Found link https://files.pythonhosted.org/packages/b2/d0/cd115fe345dd6f07ec1c780020a7dfe74966fceeb171e0f20d1d4905b0b7/pip-7.1.2-py2.py3-none-any.whl#sha256=b9d3983b5cce04f842175e30169d2f869ef12c3546fd274083a65eada4e9708c (from https://pypi.org/simple/pip/), version: 7.1.2
+  Found link https://files.pythonhosted.org/packages/d0/92/1e8406c15d9372084a5bf79d96da3a0acc4e7fcf0b80020a4820897d2a5c/pip-7.1.2.tar.gz#sha256=ca047986f0528cfa975a14fb9f7f106271d4e0c3fe1ddced6c1db2e7ae57a477 (from https://pypi.org/simple/pip/), version: 7.1.2
+  Found link https://files.pythonhosted.org/packages/00/ae/bddef02881ee09c6a01a0d6541aa6c75a226a4e68b041be93142befa0cd6/pip-8.0.0-py2.py3-none-any.whl#sha256=262ed1823eb7fbe3f18a9bedb4800e59c4ab9a6682aff8c37b5ee83ea840910b (from https://pypi.org/simple/pip/), version: 8.0.0
+  Found link https://files.pythonhosted.org/packages/e3/2d/03c014d11e66628abf2fda5ca00f779cbe7b5292c5cd13d42a95b94aa9b8/pip-8.0.0.tar.gz#sha256=90112b296152f270cb8dddcd19b7b87488d9e002e8cf622e14c4da9c2f6319b1 (from https://pypi.org/simple/pip/), version: 8.0.0
+  Found link https://files.pythonhosted.org/packages/45/9c/6f9a24917c860873e2ce7bd95b8f79897524353df51d5d920cd6b6c1ec33/pip-8.0.1-py2.py3-none-any.whl#sha256=dedaac846bc74e38a3253671f51a056331ffca1da70e3f48d8128f2aa0635bba (from https://pypi.org/simple/pip/), version: 8.0.1
+  Found link https://files.pythonhosted.org/packages/ea/66/a3d6187bd307159fedf8575c0d9ee2294d13b1cdd11673ca812e6a2dda8f/pip-8.0.1.tar.gz#sha256=477c50b3e538a7ac0fa611fb8b877b04b33fb70d325b12a81b9dbf3eb1158a4d (from https://pypi.org/simple/pip/), version: 8.0.1
+  Found link https://files.pythonhosted.org/packages/e7/a0/bd35f5f978a5e925953ce02fa0f078a232f0f10fcbe543d8cfc043f74fda/pip-8.0.2-py2.py3-none-any.whl#sha256=249a6f3194be8c2e8cb4d4be3f6fd16a9f1e3336218caffa8e7419e3816f9988 (from https://pypi.org/simple/pip/), version: 8.0.2
+  Found link https://files.pythonhosted.org/packages/ce/15/ee1f9a84365423e9ef03d0f9ed0eba2fb00ac1fffdd33e7b52aea914d0f8/pip-8.0.2.tar.gz#sha256=46f4bd0d8dfd51125a554568d646fe4200a3c2c6c36b9f2d06d2212148439521 (from https://pypi.org/simple/pip/), version: 8.0.2
+  Found link https://files.pythonhosted.org/packages/ae/d4/2b127310f5364610b74c28e2e6a40bc19e2d3c9a9a4e012d3e333e767c99/pip-8.0.3-py2.py3-none-any.whl#sha256=b0335bc837f9edb5aad03bd43d0973b084a1cbe616f8188dc23ba13234dbd552 (from https://pypi.org/simple/pip/), version: 8.0.3
+  Found link https://files.pythonhosted.org/packages/22/f3/14bc87a4f6b5ec70b682765978a6f3105bf05b6781fa97e04d30138bd264/pip-8.0.3.tar.gz#sha256=30f98b66f3fe1069c529a491597d34a1c224a68640c82caf2ade5f88aa1405e8 (from https://pypi.org/simple/pip/), version: 8.0.3
+  Found link https://files.pythonhosted.org/packages/1e/c7/78440b3fb882ed001e6e12d8770bd45e73d6eced4e57f7c072b829ce8a3d/pip-8.1.0-py2.py3-none-any.whl#sha256=a542b99e08002ead83200198e19a3983270357e1cb4fe704247990b5b35471dc (from https://pypi.org/simple/pip/), version: 8.1.0
+  Found link https://files.pythonhosted.org/packages/3c/72/6981d5adf880adecb066a1a1a4c312a17f8d787a3b85446967964ac66d55/pip-8.1.0.tar.gz#sha256=d8faa75dd7d0737b16d50cd0a56dc91a631c79ecfd8d38b80f6ee929ec82043e (from https://pypi.org/simple/pip/), version: 8.1.0
+  Found link https://files.pythonhosted.org/packages/31/6a/0f19a7edef6c8e5065f4346137cc2a08e22e141942d66af2e1e72d851462/pip-8.1.1-py2.py3-none-any.whl#sha256=44b9c342782ab905c042c207d995aa069edc02621ddbdc2b9f25954a0fdac25c (from https://pypi.org/simple/pip/), version: 8.1.1
+  Found link https://files.pythonhosted.org/packages/41/27/9a8d24e1b55bd8c85e4d022da2922cb206f183e2d18fee4e320c9547e751/pip-8.1.1.tar.gz#sha256=3e78d3066aaeb633d185a57afdccf700aa2e660436b4af618bcb6ff0fa511798 (from https://pypi.org/simple/pip/), version: 8.1.1
+  Found link https://files.pythonhosted.org/packages/9c/32/004ce0852e0a127f07f358b715015763273799bd798956fa930814b60f39/pip-8.1.2-py2.py3-none-any.whl#sha256=6464dd9809fb34fc8df2bf49553bb11dac4c13d2ffa7a4f8038ad86a4ccb92a1 (from https://pypi.org/simple/pip/), version: 8.1.2
+  Found link https://files.pythonhosted.org/packages/e7/a8/7556133689add8d1a54c0b14aeff0acb03c64707ce100ecd53934da1aa13/pip-8.1.2.tar.gz#sha256=4d24b03ffa67638a3fa931c09fd9e0273ffa904e95ebebe7d4b1a54c93d7b732 (from https://pypi.org/simple/pip/), version: 8.1.2
+  Found link https://files.pythonhosted.org/packages/3f/ef/935d9296acc4f48d1791ee56a73781271dce9712b059b475d3f5fa78487b/pip-9.0.0-py2.py3-none-any.whl#sha256=c856ac18ca01e7127456f831926dc67cc7d3ab663f4c13b1ec156e36db4de574 (from https://pypi.org/simple/pip/) (requires-python:>=2.6,!=3.0.*,!=3.1.*,!=3.2.*), version: 9.0.0
+  Found link https://files.pythonhosted.org/packages/5e/53/eaef47e5e2f75677c9de0737acc84b659b78a71c4086f424f55346a341b5/pip-9.0.0.tar.gz#sha256=f62fb70e7e000e46fce12aaeca752e5281a5446977fe5a75ab4189a43b3f8793 (from https://pypi.org/simple/pip/) (requires-python:>=2.6,!=3.0.*,!=3.1.*,!=3.2.*), version: 9.0.0
+  Found link https://files.pythonhosted.org/packages/b6/ac/7015eb97dc749283ffdec1c3a88ddb8ae03b8fad0f0e611408f196358da3/pip-9.0.1-py2.py3-none-any.whl#sha256=690b762c0a8460c303c089d5d0be034fb15a5ea2b75bdf565f40421f542fefb0 (from https://pypi.org/simple/pip/) (requires-python:>=2.6,!=3.0.*,!=3.1.*,!=3.2.*), version: 9.0.1
+  Found link https://files.pythonhosted.org/packages/11/b6/abcb525026a4be042b486df43905d6893fb04f05aac21c32c638e939e447/pip-9.0.1.tar.gz#sha256=09f243e1a7b461f654c26a725fa373211bb7ff17a9300058b205c61658ca940d (from https://pypi.org/simple/pip/) (requires-python:>=2.6,!=3.0.*,!=3.1.*,!=3.2.*), version: 9.0.1
+  Found link https://files.pythonhosted.org/packages/e7/f9/e801dcea22886cd513f6bd2e8f7e581bd6f67bb8e8f1cd8e7b92d8539280/pip-9.0.2-py2.py3-none-any.whl#sha256=b135491ddb061f39719b8472d8abb59c613816a2b86069c332db74d1cd208ab2 (from https://pypi.org/simple/pip/) (requires-python:>=2.6,!=3.0.*,!=3.1.*,!=3.2.*), version: 9.0.2
+  Found link https://files.pythonhosted.org/packages/e5/8f/3fc66461992dc9e9fcf5e005687d5f676729172dda640df2fd8b597a6da7/pip-9.0.2.tar.gz#sha256=88110a224e9d30e5d76592a0b2130ef10e7e67a6426e8617bb918fffbfe91fe5 (from https://pypi.org/simple/pip/) (requires-python:>=2.6,!=3.0.*,!=3.1.*,!=3.2.*), version: 9.0.2
+  Found link https://files.pythonhosted.org/packages/ac/95/a05b56bb975efa78d3557efa36acaf9cf5d2fd0ee0062060493687432e03/pip-9.0.3-py2.py3-none-any.whl#sha256=c3ede34530e0e0b2381e7363aded78e0c33291654937e7373032fda04e8803e5 (from https://pypi.org/simple/pip/) (requires-python:>=2.6,!=3.0.*,!=3.1.*,!=3.2.*), version: 9.0.3
+  Found link https://files.pythonhosted.org/packages/c4/44/e6b8056b6c8f2bfd1445cc9990f478930d8e3459e9dbf5b8e2d2922d64d3/pip-9.0.3.tar.gz#sha256=7bf48f9a693be1d58f49f7af7e0ae9fe29fd671cde8a55e6edca3581c4ef5796 (from https://pypi.org/simple/pip/) (requires-python:>=2.6,!=3.0.*,!=3.1.*,!=3.2.*), version: 9.0.3
+  Found link https://files.pythonhosted.org/packages/4b/5a/8544ae02a5bd28464e03af045e8aabde20a7b02db1911a9159328e1eb25a/pip-10.0.0b1-py2.py3-none-any.whl#sha256=dbd5d24cd461be23429625085a36cc8732cbcac4d2aaf673031f80f6ac07d844 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*), version: 10.0.0b1
+  Found link https://files.pythonhosted.org/packages/aa/6d/ffbb86abf18b750fb26f27eda7c7732df2aacaa669c420d2eb2ad6df3458/pip-10.0.0b1.tar.gz#sha256=8d6e63d8b99752e4b53f272b66f9cd7b59e2b288e9a863a61c48d167203a2656 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*), version: 10.0.0b1
+  Found link https://files.pythonhosted.org/packages/97/72/1d514201e7d7fc7fff5aac3de9c7b892cd72fb4bf23fd983630df96f7412/pip-10.0.0b2-py2.py3-none-any.whl#sha256=79f55588912f1b2b4f86f96f11e329bb01b25a484e2204f245128b927b1038a7 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*), version: 10.0.0b2
+  Found link https://files.pythonhosted.org/packages/32/67/572f642e6e42c580d3154964cfbab7d9322c23b0f417c6c01fdd206a2777/pip-10.0.0b2.tar.gz#sha256=ad6adec2150ce4aed8f6134d9b77d928fc848dbcb887fb1a455988cf99da5cae (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*), version: 10.0.0b2
+  Found link https://files.pythonhosted.org/packages/62/a1/0d452b6901b0157a0134fd27ba89bf95a857fbda64ba52e1ca2cf61d8412/pip-10.0.0-py2.py3-none-any.whl#sha256=86a60a96d85e329962a9e6f6af612cbc11106293dbc83f119802b5bee9874cf3 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*), version: 10.0.0
+  Found link https://files.pythonhosted.org/packages/e0/69/983a8e47d3dfb51e1463c1e962b2ccd1d74ec4e236e232625e353d830ed2/pip-10.0.0.tar.gz#sha256=f05a3eeea64bce94e85cc6671d679473d66288a4d37c3fcf983584954096b34f (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*), version: 10.0.0
+  Found link https://files.pythonhosted.org/packages/0f/74/ecd13431bcc456ed390b44c8a6e917c1820365cbebcb6a8974d1cd045ab4/pip-10.0.1-py2.py3-none-any.whl#sha256=717cdffb2833be8409433a93746744b59505f42146e8d37de6c62b430e25d6d7 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*), version: 10.0.1
+  Found link https://files.pythonhosted.org/packages/ae/e8/2340d46ecadb1692a1e455f13f75e596d4eab3d11a57446f08259dee8f02/pip-10.0.1.tar.gz#sha256=f2bd08e0cd1b06e10218feaf6fef299f473ba706582eb3bd9d52203fdbd7ee68 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*), version: 10.0.1
+  Found link https://files.pythonhosted.org/packages/5f/25/e52d3f31441505a5f3af41213346e5b6c221c9e086a166f3703d2ddaf940/pip-18.0-py2.py3-none-any.whl#sha256=070e4bf493c7c2c9f6a08dd797dd3c066d64074c38e9e8a0fb4e6541f266d96c (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*), version: 18.0
+  Found link https://files.pythonhosted.org/packages/69/81/52b68d0a4de760a2f1979b0931ba7889202f302072cc7a0d614211bc7579/pip-18.0.tar.gz#sha256=a0e11645ee37c90b40c46d607070c4fd583e2cd46231b1c06e389c5e814eed76 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*), version: 18.0
+  Found link https://files.pythonhosted.org/packages/c2/d7/90f34cb0d83a6c5631cf71dfe64cc1054598c843a92b400e55675cc2ac37/pip-18.1-py2.py3-none-any.whl#sha256=7909d0a0932e88ea53a7014dfd14522ffef91a464daaaf5c573343852ef98550 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*), version: 18.1
+  Found link https://files.pythonhosted.org/packages/45/ae/8a0ad77defb7cc903f09e551d88b443304a9bd6e6f124e75c0fbbf6de8f7/pip-18.1.tar.gz#sha256=c0a292bd977ef590379a3f05d7b7f65135487b67470f6281289a94e015650ea1 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*), version: 18.1
+  Found link https://files.pythonhosted.org/packages/60/64/73b729587b6b0d13e690a7c3acd2231ee561e8dd28a58ae1b0409a5a2b20/pip-19.0-py2.py3-none-any.whl#sha256=249ab0de4c1cef3dba4cf3f8cca722a07fc447b1692acd9f84e19c646db04c9a (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*), version: 19.0
+  Found link https://files.pythonhosted.org/packages/11/31/c483614095176ddfa06ac99c2af4171375053b270842c7865ca0b4438dc1/pip-19.0.tar.gz#sha256=c82bf8bc00c5732f0dd49ac1dea79b6242a1bd42a5012e308ed4f04369b17e54 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*), version: 19.0
+  Found link https://files.pythonhosted.org/packages/46/dc/7fd5df840efb3e56c8b4f768793a237ec4ee59891959d6a215d63f727023/pip-19.0.1-py2.py3-none-any.whl#sha256=aae79c7afe895fb986ec751564f24d97df1331bb99cdfec6f70dada2f40c0044 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*), version: 19.0.1
+  Found link https://files.pythonhosted.org/packages/c8/89/ad7f27938e59db1f0f55ce214087460f65048626e2226531ba6cb6da15f0/pip-19.0.1.tar.gz#sha256=e81ddd35e361b630e94abeda4a1eddd36d47a90e71eb00f38f46b57f787cd1a5 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*), version: 19.0.1
+  Found link https://files.pythonhosted.org/packages/d7/41/34dd96bd33958e52cb4da2f1bf0818e396514fd4f4725a79199564cd0c20/pip-19.0.2-py2.py3-none-any.whl#sha256=6a59f1083a63851aeef60c7d68b119b46af11d9d803ddc1cf927b58edcd0b312 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*), version: 19.0.2
+  Found link https://files.pythonhosted.org/packages/4c/4d/88bc9413da11702cbbace3ccc51350ae099bb351febae8acc85fec34f9af/pip-19.0.2.tar.gz#sha256=f851133f8b58283fa50d8c78675eb88d4ff4cde29b6c41205cd938b06338e0e5 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*), version: 19.0.2
+  Found link https://files.pythonhosted.org/packages/d8/f3/413bab4ff08e1fc4828dfc59996d721917df8e8583ea85385d51125dceff/pip-19.0.3-py2.py3-none-any.whl#sha256=bd812612bbd8ba84159d9ddc0266b7fbce712fc9bc98c82dee5750546ec8ec64 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*), version: 19.0.3
+  Found link https://files.pythonhosted.org/packages/36/fa/51ca4d57392e2f69397cd6e5af23da2a8d37884a605f9e3f2d3bfdc48397/pip-19.0.3.tar.gz#sha256=6e6f197a1abfb45118dbb878b5c859a0edbdd33fd250100bc015b67fded4b9f2 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*), version: 19.0.3
+  Found link https://files.pythonhosted.org/packages/f9/fb/863012b13912709c13cf5cfdbfb304fa6c727659d6290438e1a88df9d848/pip-19.1-py2.py3-none-any.whl#sha256=8f59b6cf84584d7962d79fd1be7a8ec0eb198aa52ea864896551736b3614eee9 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*), version: 19.1
+  Found link https://files.pythonhosted.org/packages/51/5f/802a04274843f634469ef299fcd273de4438386deb7b8681dd059f0ee3b7/pip-19.1.tar.gz#sha256=d9137cb543d8a4d73140a3282f6d777b2e786bb6abb8add3ac5b6539c82cd624 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*), version: 19.1
+  Found link https://files.pythonhosted.org/packages/5c/e0/be401c003291b56efc55aeba6a80ab790d3d4cece2778288d65323009420/pip-19.1.1-py2.py3-none-any.whl#sha256=993134f0475471b91452ca029d4390dc8f298ac63a712814f101cd1b6db46676 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*), version: 19.1.1
+  Found link https://files.pythonhosted.org/packages/93/ab/f86b61bef7ab14909bd7ec3cd2178feb0a1c86d451bc9bccd5a1aedcde5f/pip-19.1.1.tar.gz#sha256=44d3d7d3d30a1eb65c7e5ff1173cdf8f7467850605ac7cc3707b6064bddd0958 (from https://pypi.org/simple/pip/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*), version: 19.1.1
+Removing intermediate container 7bec85076010
+ ---> 95ac8aa3a777
+Step 5/6 : RUN pip install pytorch-pretrained-bert
+ ---> Running in aed868e8bc7a
+Collecting pytorch-pretrained-bert
+  Downloading https://files.pythonhosted.org/packages/d7/e0/c08d5553b89973d9a240605b9c12404bcf8227590de62bae27acbcfe076b/pytorch_pretrained_bert-0.6.2-py3-none-any.whl (123kB)
+Collecting regex (from pytorch-pretrained-bert)
+  Downloading https://files.pythonhosted.org/packages/6f/4e/1b178c38c9a1a184288f72065a65ca01f3154df43c6ad898624149b8b4e0/regex-2019.06.08.tar.gz (651kB)
+Requirement already satisfied: requests in /opt/conda/lib/python3.6/site-packages (from pytorch-pretrained-bert) (2.21.0)
+Requirement already satisfied: numpy in /opt/conda/lib/python3.6/site-packages (from pytorch-pretrained-bert) (1.15.4)
+Requirement already satisfied: torch>=0.4.1 in /opt/conda/lib/python3.6/site-packages (from pytorch-pretrained-bert) (1.0.1.post2)
+Requirement already satisfied: tqdm in /opt/conda/lib/python3.6/site-packages (from pytorch-pretrained-bert) (4.29.1)
+Collecting boto3 (from pytorch-pretrained-bert)
+  Downloading https://files.pythonhosted.org/packages/dd/cf/d2b386e197d2c093dfc0a4f2d8225ce8967b9c57b7c290ff61dbfe45d5a7/boto3-1.9.185-py2.py3-none-any.whl (128kB)
+Requirement already satisfied: idna<2.9,>=2.5 in /opt/conda/lib/python3.6/site-packages (from requests->pytorch-pretrained-bert) (2.8)
+Requirement already satisfied: urllib3<1.25,>=1.21.1 in /opt/conda/lib/python3.6/site-packages (from requests->pytorch-pretrained-bert) (1.24.1)
+Requirement already satisfied: chardet<3.1.0,>=3.0.2 in /opt/conda/lib/python3.6/site-packages (from requests->pytorch-pretrained-bert) (3.0.4)
+Requirement already satisfied: certifi>=2017.4.17 in /opt/conda/lib/python3.6/site-packages (from requests->pytorch-pretrained-bert) (2018.11.29)
+Collecting jmespath<1.0.0,>=0.7.1 (from boto3->pytorch-pretrained-bert)
+  Downloading https://files.pythonhosted.org/packages/83/94/7179c3832a6d45b266ddb2aac329e101367fbdb11f425f13771d27f225bb/jmespath-0.9.4-py2.py3-none-any.whl
+Collecting botocore<1.13.0,>=1.12.185 (from boto3->pytorch-pretrained-bert)
+  Downloading https://files.pythonhosted.org/packages/e7/5c/cb7545729b23410b51ad3f64c4c21d92d9f48f0a7ff5027c2d20bd8c298b/botocore-1.12.185-py2.py3-none-any.whl (5.6MB)
+Collecting s3transfer<0.3.0,>=0.2.0 (from boto3->pytorch-pretrained-bert)
+  Downloading https://files.pythonhosted.org/packages/16/8a/1fc3dba0c4923c2a76e1ff0d52b305c44606da63f718d14d3231e21c51b0/s3transfer-0.2.1-py2.py3-none-any.whl (70kB)
+Collecting docutils>=0.10 (from botocore<1.13.0,>=1.12.185->boto3->pytorch-pretrained-bert)
+  Downloading https://files.pythonhosted.org/packages/36/fa/08e9e6e0e3cbd1d362c3bbee8d01d0aedb2155c4ac112b19ef3cae8eed8d/docutils-0.14-py3-none-any.whl (543kB)
+Collecting python-dateutil<3.0.0,>=2.1; python_version >= "2.7" (from botocore<1.13.0,>=1.12.185->boto3->pytorch-pretrained-bert)
+  Downloading https://files.pythonhosted.org/packages/41/17/c62faccbfbd163c7f57f3844689e3a78bae1f403648a6afb1d0866d87fbb/python_dateutil-2.8.0-py2.py3-none-any.whl (226kB)
+Requirement already satisfied: six>=1.5 in /opt/conda/lib/python3.6/site-packages (from python-dateutil<3.0.0,>=2.1; python_version >= "2.7"->botocore<1.13.0,>=1.12.185->boto3->pytorch-pretrained-bert) (1.12.0)
+Building wheels for collected packages: regex
+  Building wheel for regex (setup.py): started
+  Building wheel for regex (setup.py): finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/35/e4/80/abf3b33ba89cf65cd262af8a22a5a999cc28fbfabea6b38473
+Successfully built regex
+Installing collected packages: regex, jmespath, docutils, python-dateutil, botocore, s3transfer, boto3, pytorch-pretrained-bert
+Successfully installed boto3-1.9.185 botocore-1.12.185 docutils-0.14 jmespath-0.9.4 python-dateutil-2.8.0 pytorch-pretrained-bert-0.6.2 regex-2019.6.8 s3transfer-0.2.1
+Removing intermediate container aed868e8bc7a
+ ---> a696176afdbb
+Step 6/6 : WORKDIR /workspace
+ ---> Running in 9b9c196660fc
+Removing intermediate container 9b9c196660fc
+ ---> 0651e4a724b7
+Successfully built 0651e4a724b7
+Successfully tagged psnonis/w251-final:bert
