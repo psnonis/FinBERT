@@ -25,10 +25,13 @@ import sys
 if __name__ == '__main__':
     
     year  = sys.argv[1]
+
     kevin = f'data/{year}.kevin'
-    data  = chunkify(kevin)
     chunk = f'data/{year}.chunk'
+
+    data  = chunkify(kevin)
+    text = '\n\n'.join(data)
 
     with open(chunk, 'wt') as f :
 
-        chunk.write(data)
+        f.write(text)
