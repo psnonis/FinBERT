@@ -1,6 +1,4 @@
-[submodule "reference/biobert"]
+[submodule "refs/biobert"]
 	path = reference/biobert
 	url = https://github.com/dmis-lab/biobert.git
-[submodule "reference/bert"]
-	path = reference/bert
-	url = https://github.com/google-research/bert.git
+	
