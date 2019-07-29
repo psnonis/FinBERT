@@ -1,0 +1,1 @@
+../work-fin/bert.sh
