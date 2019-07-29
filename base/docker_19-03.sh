@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo apt-get update
 
 sudo apt-get install \
@@ -17,4 +19,4 @@ sudo add-apt-repository \
 
 sudo apt-get update
 
-sudo apt install docker-ce docker-ce-cli containerd.io
+sudo apt install -yq --autoremove docker-ce docker-ce-cli containerd.io
