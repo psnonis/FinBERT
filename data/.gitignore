@@ -1,3 +1,4 @@
 *.kevin
-*.chunk
-*.tfrecord
+*.chunk*
+*.tfrecord*
+*.gz
