@@ -1,0 +1,233 @@
+#!/bin/bash
+# Copyright (c) 2018, NVIDIA CORPORATION. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+#  * Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#  * Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+#  * Neither the name of NVIDIA CORPORATION nor the names of its
+#    contributors may be used to endorse or promote products derived
+#    from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY
+# EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+# PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+# CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+# EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+# PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
+# OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+############################################################################
+## This script generates the model store needed by some of the
+## tensorrtserver CI tests. Generating these models requires using
+## the TensorFlow and PyTorch containers.
+##
+## 1. Update TENSORRT_IMAGE, PYTORCH_IMAGE and TENSORFLOW_IMAGE to
+## match what is being used by the tensorrtserver release being
+## tested.
+##
+## 2. Set CUDA_DEVICE to the ID of the CUDA device present on the
+## local system that you want to target for the generated models.
+##
+## 3. Run this script to create /tmp/qa_model_repository,
+## /tmp/qa_variable_model_repository, /tmp/qa_zero_model_repository,
+## /tmp/qa_reshape_model_repository,
+## /tmp/qa_sequence_model_repository, and
+## /tmp/qa_variable_sequence_model_repository directories containing
+## all the models needed for CI testing.
+##
+############################################################################
+
+PYTORCH_IMAGE=${PYTORCH_IMAGE:=nvcr.io/nvidia/pytorch:19.06-py3}
+TENSORFLOW_IMAGE=${TENSORFLOW_IMAGE:=nvcr.io/nvidia/tensorflow:19.06-py3}
+TENSORRT_IMAGE=${TENSORRT_IMAGE:=nvcr.io/nvidia/tensorrt:19.06-py3}
+CUDA_DEVICE=0
+
+###
+HOST_SRCDIR=/tmp/gen_srcdir
+HOST_DESTDIR=/tmp/qa_model_repository
+HOST_VARDESTDIR=/tmp/qa_variable_model_repository
+HOST_ZERODESTDIR=/tmp/qa_zero_model_repository
+HOST_RESHAPEDESTDIR=/tmp/qa_reshape_model_repository
+HOST_SEQDESTDIR=/tmp/qa_sequence_model_repository
+HOST_VARSEQDESTDIR=/tmp/qa_variable_sequence_model_repository
+HOST_ENSEMBLEDESTDIR=/tmp/qa_ensemble_model_repository
+
+rm -fr $HOST_DESTDIR $HOST_VARDESTDIR
+rm -fr $HOST_ZERODESTDIR $HOST_RESHAPEDESTDIR
+rm -fr $HOST_SEQDESTDIR $HOST_VARSEQDESTDIR
+rm -fr $HOST_ENSEMBLEDESTDIR
+mkdir -p $HOST_DESTDIR
+mkdir -p $HOST_VARDESTDIR
+mkdir -p $HOST_ZERODESTDIR
+mkdir -p $HOST_RESHAPEDESTDIR
+mkdir -p $HOST_SEQDESTDIR
+mkdir -p $HOST_VARSEQDESTDIR
+# Since the models required by ensemble models may not be available
+# at this point, storing ensemble models separately so that other qa directories
+# are proper model stores
+mkdir -p $HOST_ENSEMBLEDESTDIR/qa_model_repository
+mkdir -p $HOST_ENSEMBLEDESTDIR/qa_variable_model_repository
+mkdir -p $HOST_ENSEMBLEDESTDIR/qa_zero_model_repository
+mkdir -p $HOST_ENSEMBLEDESTDIR/qa_reshape_model_repository
+mkdir -p $HOST_ENSEMBLEDESTDIR/qa_sequence_model_repository
+mkdir -p $HOST_ENSEMBLEDESTDIR/qa_variable_sequence_model_repository
+
+rm -fr $HOST_SRCDIR
+mkdir -p $HOST_SRCDIR
+
+cp ./gen_qa_models.py $HOST_SRCDIR/.
+cp ./gen_qa_zero_models.py $HOST_SRCDIR/.
+cp ./gen_qa_reshape_models.py $HOST_SRCDIR/.
+cp ./gen_qa_sequence_models.py $HOST_SRCDIR/.
+cp ./gen_ensemble_model_utils.py $HOST_SRCDIR/.
+cp ./test_util.py $HOST_SRCDIR/.
+
+C2SCRIPT=c2_gen.cmds
+TFSCRIPT=tf_gen.cmds
+TRTSCRIPT=trt_gen.cmds
+
+SRCDIR=/tmp/src
+DESTDIR=/tmp/models
+VARDESTDIR=/tmp/varmodels
+ZERODESTDIR=/tmp/zeromodels
+RESHAPEDESTDIR=/tmp/reshapemodels
+SEQDESTDIR=/tmp/seqmodels
+VARSEQDESTDIR=/tmp/varseqmodels
+ENSEMBLEDESTDIR=/tmp/ensemblemodels
+
+# PyTorch
+cat >$HOST_SRCDIR/$C2SCRIPT <<EOF
+#!/bin/bash
+set -e
+export CUDA_VISIBLE_DEVICES=$CUDA_DEVICE
+cd $SRCDIR
+python3 $SRCDIR/gen_qa_models.py --onnx --netdef --models_dir=$DESTDIR
+chown -R $(id -u):$(id -g) $DESTDIR
+python3 $SRCDIR/gen_qa_models.py --onnx --netdef --variable --models_dir=$VARDESTDIR
+chown -R $(id -u):$(id -g) $VARDESTDIR
+python3 $SRCDIR/gen_qa_zero_models.py --onnx --netdef --models_dir=$ZERODESTDIR
+chown -R $(id -u):$(id -g) $ZERODESTDIR
+python3 $SRCDIR/gen_qa_reshape_models.py --onnx --netdef --models_dir=$RESHAPEDESTDIR
+chown -R $(id -u):$(id -g) $RESHAPEDESTDIR
+python3 $SRCDIR/gen_qa_sequence_models.py --onnx --netdef --models_dir=$SEQDESTDIR
+chown -R $(id -u):$(id -g) $SEQDESTDIR
+python3 $SRCDIR/gen_qa_sequence_models.py --onnx --netdef --variable --models_dir=$VARSEQDESTDIR
+chown -R $(id -u):$(id -g) $VARSEQDESTDIR
+EOF
+
+chmod a+x $HOST_SRCDIR/$C2SCRIPT
+if [ $? -ne 0 ]; then
+    echo -e "Failed: chmod"
+    exit 1
+fi
+
+docker pull $PYTORCH_IMAGE
+nvidia-docker run --rm --entrypoint $SRCDIR/$C2SCRIPT \
+       --mount type=bind,source=$HOST_SRCDIR,target=$SRCDIR \
+       --mount type=bind,source=$HOST_DESTDIR,target=$DESTDIR \
+       --mount type=bind,source=$HOST_VARDESTDIR,target=$VARDESTDIR \
+       --mount type=bind,source=$HOST_ZERODESTDIR,target=$ZERODESTDIR \
+       --mount type=bind,source=$HOST_RESHAPEDESTDIR,target=$RESHAPEDESTDIR \
+       --mount type=bind,source=$HOST_SEQDESTDIR,target=$SEQDESTDIR \
+       --mount type=bind,source=$HOST_VARSEQDESTDIR,target=$VARSEQDESTDIR \
+       -u $(id -u):$(id -g) $PYTORCH_IMAGE
+if [ $? -ne 0 ]; then
+    echo -e "Failed"
+    exit 1
+fi
+
+# Tensorflow
+cat >$HOST_SRCDIR/$TFSCRIPT <<EOF
+#!/bin/bash
+set -e
+export CUDA_VISIBLE_DEVICES=$CUDA_DEVICE
+cd $SRCDIR
+python3 $SRCDIR/gen_qa_models.py --graphdef --savedmodel --models_dir=$DESTDIR
+chown -R $(id -u):$(id -g) $DESTDIR
+python3 $SRCDIR/gen_qa_models.py --graphdef --savedmodel --variable --models_dir=$VARDESTDIR
+chown -R $(id -u):$(id -g) $VARDESTDIR
+python3 $SRCDIR/gen_qa_zero_models.py --graphdef --savedmodel --models_dir=$ZERODESTDIR
+chown -R $(id -u):$(id -g) $ZERODESTDIR
+python3 $SRCDIR/gen_qa_reshape_models.py --graphdef --savedmodel --models_dir=$RESHAPEDESTDIR
+chown -R $(id -u):$(id -g) $RESHAPEDESTDIR
+python3 $SRCDIR/gen_qa_sequence_models.py --graphdef --savedmodel --models_dir=$SEQDESTDIR
+chown -R $(id -u):$(id -g) $SEQDESTDIR
+python3 $SRCDIR/gen_qa_sequence_models.py --graphdef --savedmodel --variable --models_dir=$VARSEQDESTDIR
+chown -R $(id -u):$(id -g) $VARSEQDESTDIR
+python3 $SRCDIR/gen_qa_models.py --ensemble --models_dir=$ENSEMBLEDESTDIR/qa_model_repository
+python3 $SRCDIR/gen_qa_models.py --ensemble --variable --models_dir=$ENSEMBLEDESTDIR/qa_variable_model_repository
+python3 $SRCDIR/gen_qa_reshape_models.py --ensemble --models_dir=$ENSEMBLEDESTDIR/qa_reshape_model_repository
+python3 $SRCDIR/gen_qa_zero_models.py --ensemble --models_dir=$ENSEMBLEDESTDIR/qa_zero_model_repository
+python3 $SRCDIR/gen_qa_sequence_models.py --ensemble --models_dir=$ENSEMBLEDESTDIR/qa_sequence_model_repository
+python3 $SRCDIR/gen_qa_sequence_models.py --ensemble --variable --models_dir=$ENSEMBLEDESTDIR/qa_variable_sequence_model_repository
+chown -R $(id -u):$(id -g) $ENSEMBLEDESTDIR
+EOF
+
+chmod a+x $HOST_SRCDIR/$TFSCRIPT
+if [ $? -ne 0 ]; then
+    echo -e "Failed: chmod"
+    exit 1
+fi
+
+docker pull $TENSORFLOW_IMAGE
+nvidia-docker run --rm --entrypoint $SRCDIR/$TFSCRIPT \
+       --mount type=bind,source=$HOST_SRCDIR,target=$SRCDIR \
+       --mount type=bind,source=$HOST_DESTDIR,target=$DESTDIR \
+       --mount type=bind,source=$HOST_VARDESTDIR,target=$VARDESTDIR \
+       --mount type=bind,source=$HOST_ZERODESTDIR,target=$ZERODESTDIR \
+       --mount type=bind,source=$HOST_RESHAPEDESTDIR,target=$RESHAPEDESTDIR \
+       --mount type=bind,source=$HOST_SEQDESTDIR,target=$SEQDESTDIR \
+       --mount type=bind,source=$HOST_VARSEQDESTDIR,target=$VARSEQDESTDIR \
+       --mount type=bind,source=$HOST_ENSEMBLEDESTDIR,target=$ENSEMBLEDESTDIR \
+       -u $(id -u):$(id -g) $TENSORFLOW_IMAGE
+if [ $? -ne 0 ]; then
+    echo -e "Failed"
+    exit 1
+fi
+
+# TensorRT
+cat >$HOST_SRCDIR/$TRTSCRIPT <<EOF
+#!/bin/bash
+set -e
+export CUDA_VISIBLE_DEVICES=$CUDA_DEVICE
+cd $SRCDIR
+python3 $SRCDIR/gen_qa_models.py --tensorrt --models_dir=$DESTDIR
+chown -R $(id -u):$(id -g) $DESTDIR
+python3 $SRCDIR/gen_qa_models.py --tensorrt --variable --models_dir=$VARDESTDIR
+chown -R $(id -u):$(id -g) $VARDESTDIR
+python3 $SRCDIR/gen_qa_reshape_models.py --tensorrt --models_dir=$RESHAPEDESTDIR
+chown -R $(id -u):$(id -g) $RESHAPEDESTDIR
+python3 $SRCDIR/gen_qa_sequence_models.py --tensorrt --models_dir=$SEQDESTDIR
+chown -R $(id -u):$(id -g) $SEQDESTDIR
+python3 $SRCDIR/gen_qa_sequence_models.py --tensorrt --variable --models_dir=$VARSEQDESTDIR
+chown -R $(id -u):$(id -g) $VARSEQDESTDIR
+EOF
+
+chmod a+x $HOST_SRCDIR/$TRTSCRIPT
+if [ $? -ne 0 ]; then
+    echo -e "Failed: chmod"
+    exit 1
+fi
+
+docker pull $TENSORRT_IMAGE
+nvidia-docker run --rm --entrypoint $SRCDIR/$TRTSCRIPT \
+       --mount type=bind,source=$HOST_SRCDIR,target=$SRCDIR \
+       --mount type=bind,source=$HOST_DESTDIR,target=$DESTDIR \
+       --mount type=bind,source=$HOST_VARDESTDIR,target=$VARDESTDIR \
+       --mount type=bind,source=$HOST_RESHAPEDESTDIR,target=$RESHAPEDESTDIR \
+       --mount type=bind,source=$HOST_SEQDESTDIR,target=$SEQDESTDIR \
+       --mount type=bind,source=$HOST_VARSEQDESTDIR,target=$VARSEQDESTDIR \
+       -u $(id -u):$(id -g) $TENSORRT_IMAGE
+if [ $? -ne 0 ]; then
+    echo -e "Failed"
+    exit 1
+fi
