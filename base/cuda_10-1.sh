@@ -1,5 +1,5 @@
- #!/bin/bash
- 
+#!/bin/bash
+
 lspci | grep -i nvidia
 
 sudo apt-get update
