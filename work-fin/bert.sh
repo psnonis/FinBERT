@@ -7,7 +7,7 @@ ckpt=$(realpath  ./ckpt)
 
 max_seq=128
 max_pre=20
-bat_sze=128
+bat_sze=96
 
 mkdir -p ${ckpt}/${max_seq}-${max_pre}_${bat_sze}
   rm -rf ${ckpt}/${max_seq}-${max_pre}_${bat_sze}/*
@@ -16,6 +16,9 @@ echo ${bert} ${max_seq} ${max_pre} ${bat_sze}
 echo ${data}/*
 
   cd ${bert}
+
+# 128 + 128 : OOM
+# 128 +  96 : 15328 / 16130
 
 mpiexec --allow-run-as-root --bind-to socket -np 2 python3 run_pretraining.py \
   --bert_config_file=${base}/uncased_L-12_H-768_A-12/bert_config.json \
