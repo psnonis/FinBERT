@@ -1,1 +1,1 @@
-../work-fin/bert.sh
+../bert.sh
