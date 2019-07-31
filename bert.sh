@@ -13,7 +13,8 @@ ckpt=$(realpath  ./ckpt)
 work=$(realpath  .     )
 
 MSL=${1:-128}
-BWI=${2:-0}
+NTS=${2:-250000}
+BWI=${3:-0}
 
 # Pre-Training History
 # 128 x 128 : OOM
@@ -98,7 +99,7 @@ CMD+=" --train_batch_size=${TBS}"
 CMD+=" --max_seq_length=${MSL}"
 CMD+=" --max_predictions_per_seq=${MPS}"
 
-CMD+=" --num_train_steps=250000"
+CMD+=" --num_train_steps=${NTS}"
 CMD+=" --num_warmup_steps=10000"
 
 CMD+=" --save_checkpoints_steps=10000"
