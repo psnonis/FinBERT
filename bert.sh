@@ -129,4 +129,4 @@ echo
 mkdir -p ${OUT}
 cd ${bert}
 
-( ${CMD} ) |& sed "s/^/$(date +%X) /" | tee $LOG
+( ${CMD} ) |& sed -u "s/^/$(date +%X) /" | tee $LOG
