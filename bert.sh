@@ -101,6 +101,8 @@ CMD+=" --max_predictions_per_seq=${MPS}"
 CMD+=" --num_train_steps=250000"
 CMD+=" --num_warmup_steps=10000"
 
+CMD+=" --save_checkpoints_steps=10000"
+
 CMD+=" --learning_rate=1e-4"
 CMD+=" --use_fp16"
 CMD+=" --use_xla"
