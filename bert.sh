@@ -67,13 +67,13 @@ else
 # From Scratch Initialization
   OUT=${ckpt}/${FIN}
   LOG=${ckpt}/${FIN}/pretraining.${DTS}.log
-  INI=${OUT}/model.ckpt
+# INI=${OUT}/model.ckpt
 
 fi
 
 
 echo
-echo ${FIN}_${MSL}MSL
+echo ${FIN} Pre-Training
 
 echo
 echo CFG : ${CFG}
@@ -90,7 +90,9 @@ CMD="python3 ${bert}/run_pretraining.py"
 CMD+=" --bert_config_file=${CFG}"
 CMD+=" --input_file=${DAT}"
 CMD+=" --output_dir=${OUT}"
-CMD+=" --init_checkpoint=${INI}"
+
+
+#CMD+=" --init_checkpoint=${INI}"
 
 CMD+=" --do_train=True"
 CMD+=" --do_eval=True"
