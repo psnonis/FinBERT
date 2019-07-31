@@ -19,8 +19,6 @@ BWI=${2:-0}
 # 128 x 128 : OOM
 # 128 x  96 : 15328 / 16130
 
-echo "${MSL}" == 128
-
 if [[ ${MSL} == 128 ]]; then
 
   MSL=128 # maximum sequence length
@@ -42,33 +40,33 @@ DAT=${data}/????.tfrecord.??-${MSL}-${MPS}
 
 if [[ ${work} == *"pre"* ]]; then
   if [[ ${BWI} == 1 ]]; then
-    FIN=FinBERT-Error
+    FIN=FinBERT-Error_${MSL}MSL
   else
-    FIN=FinBERT-Pre2K
+    FIN=FinBERT-Pre2K_${MSL}MSL
   fi
 fi
 
 if [[ ${work} == *"fin"* ]]; then
   if [[ ${BWI} == 1 ]]; then
-    FIN=FinBERT-Combo
+    FIN=FinBERT-Combo_${MSL}MSL
   else
-    FIN=FinBERT-Prime
+    FIN=FinBERT-Prime_${MSL}MSL
   fi
 fi
 
 if [[ ${BWI} == 1 ]]; then
 
 # BERT Weights Initialization
-  OUT=${ckpt}/${MSL}-${MPS}_${TBS}_bwi
-  LOG=${ckpt}/${MSL}-${MPS}_${TBS}_bwi/pretraining.${DTS}.log
-  INI=${base}/uncased_L-12_H-768_A-12
+  OUT=${ckpt}/${FIN}
+  LOG=${ckpt}/${FIN}/pretraining.${DTS}.log
+  INI=${base}/uncased_L-12_H-768_A-12/bert_model.ckpt
 
 else
 
 # From Scratch Initialization
-  OUT=${ckpt}/${MSL}-${MPS}_${TBS}_fsi
-  LOG=${ckpt}/${MSL}-${MPS}_${TBS}_fsi/pretraining.${DTS}.log
-  INI=${OUT}
+  OUT=${ckpt}/${FIN}
+  LOG=${ckpt}/${FIN}/pretraining.${DTS}.log
+  INI=${OUT}/model.ckpt
 
 fi
 
@@ -86,7 +84,7 @@ echo
 echo OUT : ${OUT}
 echo
 
-CMD="python3 /workspace/bert/run_pretraining.py"
+CMD="python3 ${bert}/run_pretraining.py"
 
 CMD+=" --bert_config_file=${CFG}"
 CMD+=" --input_file=${DAT}"
@@ -96,9 +94,9 @@ CMD+=" --init_checkpoint=${INI}"
 CMD+=" --do_train=True"
 CMD+=" --do_eval=True"
 
-CMD+=" --train_batch_size=${bat_sze}"
-CMD+=" --max_seq_length=${max_seq}"
-CMD+=" --max_predictions_per_seq=${max_pre}"
+CMD+=" --train_batch_size=${TBS}"
+CMD+=" --max_seq_length=${MSL}"
+CMD+=" --max_predictions_per_seq=${MPS}"
 
 CMD+=" --num_train_steps=250000"
 CMD+=" --num_warmup_steps=10000"
@@ -113,9 +111,11 @@ if [ $GPU -gt 1 ] ; then
   CMD="mpiexec --allow-run-as-root -np ${GPU} --bind-to socket ${CMD}"
 fi
 
+echo LOG : ${LOG}
+echo
 echo CMD : ${CMD}
 echo
-echo CFG : ${FIN}_${MSL}MSL
+echo FIN : ${FIN}
 echo
 echo -n "ASK : Looks Good ? (Press Enter to Continue or Ctrl+C to Exit) "
 read
@@ -124,4 +124,4 @@ echo
 mkdir -p ${OUT}
 cd ${bert}
 
-( ${CMD} ) |& tee $LOG
+( ${CMD} ) |& sed "s/^/$(date +%X) /" | tee $LOG
