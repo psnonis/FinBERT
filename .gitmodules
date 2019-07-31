@@ -1,4 +1,0 @@
-[submodule "refs/biobert"]
-	path = reference/biobert
-	url = https://github.com/dmis-lab/biobert.git
-	
