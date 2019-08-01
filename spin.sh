@@ -13,5 +13,5 @@ docker run --rm -it \
     --gpus all \
     -e NVIDIA_VISIBLE_DEVICES=$NVD \
     -v $PWD:/w266-final \
-    -w /w266-final \
+    -w /w266-final/work \
     nvcr.io/nvidia/tensorflow:19.06-py3 $CMD
