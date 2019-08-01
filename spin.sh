@@ -5,6 +5,7 @@ NVD=${NVIDIA_VISIBLE_DEVICES:-"all"}
 
 tmux new-session -A -s FinBERT \
 docker run --rm -it \
+    --name FinBERT \
     --net=host \
     --shm-size=1g \
     --ulimit memlock=-1 \

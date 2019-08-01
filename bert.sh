@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# bert.sh 512 0 - for 512 MSL and 
+# bert.sh FinBERT-Prime 128 250000 10000 : for 128 MSL and 250K training steps and 10K warmup steps
 
 clear
 
@@ -12,9 +12,12 @@ data=$(realpath  ./data)
 ckpt=$(realpath  ./ckpt)
 work=$(realpath  .     )
 
-MSL=${1:-128}
-NTS=${2:-250000}
-BWI=${3:-0}
+FIN=${1:-FinBERT-Error}
+MSL=${2:-128}
+NTS=${3:-250000}
+NWS=${4:-10000}
+TBS=${5:-96}
+BWI=${6:-0}
 
 # Pre-Training History
 # 128 x 128 : OOM
@@ -24,49 +27,36 @@ if [[ ${MSL} == 128 ]]; then
 
   MSL=128 # maximum sequence length
   MPS=20  # maximum predictions/masks per sequence (15% of MSL)
-  TBS=96  # training batch size
+# TBS=96  # training batch size
 
 else
 
   MSL=512 # maximum sequence length
   MPS=80  # maximum predictions/masks per sequence (15% of MSL)
-  TBS=32  # training batch size
+# TBS=96  # training batch size
 
 fi
 
 GPU=2
-DTS=`date +'%y-%m-%d_%H-%M-%S'`
+DTS=`date +'%m%d%H%M%S'`
 CFG=${base}/uncased_L-12_H-768_A-12/bert_config.json
 DAT=${data}/????.tfrecord.??-${MSL}-${MPS}
 
-if [[ ${work} == *"work-pre"* ]]; then
-  FIN=FinBERT-Pre2K_${MSL}MSL
-fi
+FIN=${FIN}_${MSL}MSL
 
-if [[ ${work} == *"work-fin"* ]]; then
-  FIN=FinBERT-Prime_${MSL}MSL
-fi
+OUT=${ckpt}/${FIN}
+LOG=${ckpt}/${FIN}/events.out.training.${DTS}.${MSL}-${MSP}-${TBS}.${NTS}.log
 
 if [[ ${BWI} == 1 ]]; then
-
 # BERT Weights Initialization
-  OUT=${ckpt}/${FIN}
-  LOG=${ckpt}/${FIN}/pretraining.${DTS}.log
   INI=${base}/uncased_L-12_H-768_A-12/bert_model.ckpt
-
 else
-
 # From Scratch Initialization
-  OUT=${ckpt}/${FIN}
-  LOG=${ckpt}/${FIN}/pretraining.${DTS}.log
 # INI=${OUT}/model.ckpt
-
 fi
 
-
 echo
-echo ${FIN} Pre-Training
-
+echo Pre-Training : ${FIN}
 echo
 echo CFG : ${CFG}
 echo
@@ -83,8 +73,7 @@ CMD+=" --bert_config_file=${CFG}"
 CMD+=" --input_file=${DAT}"
 CMD+=" --output_dir=${OUT}"
 
-
-#CMD+=" --init_checkpoint=${INI}"
+[[ -n ${INI} ]] && CMD+=" --init_checkpoint=${INI}"
 
 CMD+=" --do_train=True"
 CMD+=" --do_eval=True"
@@ -94,9 +83,9 @@ CMD+=" --max_seq_length=${MSL}"
 CMD+=" --max_predictions_per_seq=${MPS}"
 
 CMD+=" --num_train_steps=${NTS}"
-CMD+=" --num_warmup_steps=10000"
+CMD+=" --num_warmup_steps=${NWS}"
 
-CMD+=" --save_checkpoints_steps=10000"
+CMD+=" --save_checkpoints_steps=5000"
 
 CMD+=" --learning_rate=1e-4"
 CMD+=" --use_fp16"
@@ -112,11 +101,16 @@ echo LOG : ${LOG}
 echo
 echo CMD : ${CMD}
 echo
-echo FIN : ${FIN}
+echo FIN : ${FIN} : $(ls ${OUT})
 echo
 echo -n "ASK : Looks Good ? (Press Enter to Continue or Ctrl+C to Exit) "
 read
 echo
+
+echo ${FIN}  > ${LOG}
+echo ${@}   >> ${LOG}
+echo ${CMD} >> ${LOG}
+echo        >> ${LOG}
 
 mkdir -p ${OUT}
 cd ${bert}
