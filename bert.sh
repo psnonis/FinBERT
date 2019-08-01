@@ -39,20 +39,12 @@ DTS=`date +'%y-%m-%d_%H-%M-%S'`
 CFG=${base}/uncased_L-12_H-768_A-12/bert_config.json
 DAT=${data}/????.tfrecord.??-${MSL}-${MPS}
 
-if [[ ${work} == *"pre"* ]]; then
-  if [[ ${BWI} == 1 ]]; then
-    FIN=FinBERT-Error_${MSL}MSL
-  else
-    FIN=FinBERT-Pre2K_${MSL}MSL
-  fi
+if [[ ${work} == *"work-pre"* ]]; then
+  FIN=FinBERT-Pre2K_${MSL}MSL
 fi
 
-if [[ ${work} == *"fin"* ]]; then
-  if [[ ${BWI} == 1 ]]; then
-    FIN=FinBERT-Combo_${MSL}MSL
-  else
-    FIN=FinBERT-Prime_${MSL}MSL
-  fi
+if [[ ${work} == *"work-fin"* ]]; then
+  FIN=FinBERT-Prime_${MSL}MSL
 fi
 
 if [[ ${BWI} == 1 ]]; then
