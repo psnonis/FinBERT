@@ -58,6 +58,9 @@ def to_tfrec(chunkFile, tfrecFile) :
     max_seq = 128 #  6% of sentences on 2019 are longer than 64 (64x2 for the two sentences)
     max_pre = 20  # 15% of 128
 
+    max_seq = 512
+    max_pre = 80
+
     command = f"nohup python3 create_pretraining_data.py \
             --input_file={chunkFile} \
             --output_file={tfrecFile}-{max_seq}-{max_pre} \
