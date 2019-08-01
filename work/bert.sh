@@ -4,11 +4,11 @@
 
 clear
 
-[[ ! -e ../bert-gpu ]] && echo -e "\nPlease call from a [work-xxx] folder, exiting...\n" && exit 1
+[[ ! -e ../bert-gpu ]] && echo -e "\nPlease call from [work] folder, exiting...\n" && exit 1
 
 bert=$(realpath ../bert-gpu)
 base=$(realpath ../base)
-data=$(realpath  ./data)
+data=$(realpath  ./2019)
 ckpt=$(realpath  ./ckpt)
 work=$(realpath  .     )
 
