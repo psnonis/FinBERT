@@ -23,20 +23,6 @@
 
 - *`Combo`* `Pre-trained continued from original BERT on 2017, 2018, 2019 SEC 10K dataset`
 
-## Setting Up Workspace
+## ANALYSIS
 
-git clone https://github.com/psnonis/w266-final.git
-
-cd w266-final
-
-./setup.sh
-
-## Generating Pre-Training Data
-
-./chunk.sh
-
-## Pre-Training BERT
-
-./cuda/install.sh
-
-./train.sh
+![](figs/analysis-001.jpg)
