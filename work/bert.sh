@@ -117,5 +117,5 @@ echo        >> ${LOG}
 mkdir -p ${OUT}
 cd ${bert}
 
-${CMD} |& ${ts} | tee ${LOG}
+${CMD} |& ${ts} -s | tee ${LOG}
 
