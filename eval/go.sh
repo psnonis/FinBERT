@@ -1,0 +1,1 @@
+./test.sh FinBERT-Prime_128MSL-500K-200K 128 0 0 1

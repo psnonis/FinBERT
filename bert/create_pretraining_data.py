@@ -23,10 +23,6 @@ import random
 import tokenization
 import tensorflow as tf
 
-import warnings
-
-warnings.filterwarnings('ignore')
-
 flags = tf.flags
 
 FLAGS = flags.FLAGS
