@@ -11,6 +11,7 @@ base=$(realpath ../base)
 data=$(realpath  ./2019)
 ckpt=$(realpath  ./ckpt)
 work=$(realpath  .     )
+  ts=$(realpath  ./ts  )
 
 FIN=${1:-FinBERT-Error}
 MSL=${2:-128}
@@ -22,6 +23,7 @@ BWI=${6:-0}
 # Pre-Training History
 # 128 x 128 : OOM
 # 128 x  96 : 15328 / 16130
+# 512 x  96 : OOM
 
 if [[ ${MSL} == 128 ]]; then
 
@@ -45,12 +47,12 @@ DAT=${data}/????.tfrecord.??-${MSL}-${MPS}
 FIN=${FIN}_${MSL}MSL
 
 OUT=${ckpt}/${FIN}
-LOG=${ckpt}/${FIN}/events.out.training.${DTS}.${MSL}-${MSP}-${TBS}.${NTS}.log
+LOG=${ckpt}/${FIN}/events.out.training.${DTS}.${MSL}x${TBS}.${NTS}.log
 
 if [[ ${BWI} == 1 ]]; then
 # BERT Weights Initialization
   INI=${base}/uncased_L-12_H-768_A-12/bert_model.ckpt
-else
+# else
 # From Scratch Initialization
 # INI=${OUT}/model.ckpt
 fi
@@ -115,4 +117,5 @@ echo        >> ${LOG}
 mkdir -p ${OUT}
 cd ${bert}
 
-( ${CMD} ) |& sed -u "s/^/$(date +%X) /" | tee $LOG
+${CMD} |& ${ts} -s | tee ${LOG}
+
