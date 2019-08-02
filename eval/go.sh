@@ -1,1 +1,5 @@
-./test.sh FinBERT-Prime_128MSL-500K-200K 128 0 0 1
+
+for m in ckpt/*
+do
+  ./test.sh ${m} 128 0 0 1
+done 
