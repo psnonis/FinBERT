@@ -1,0 +1,26 @@
+00:00:03 WARNING: Logging before flag parsing goes to stderr.
+00:00:03 W0803 01:13:24.073021 140596524181312 deprecation_wrapper.py:119] From /root/w266-final/bert/optimization.py:87: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
+00:00:03 
+00:00:03 W0803 01:13:24.074152 140596524181312 deprecation_wrapper.py:119] From /root/w266-final/bert/run_pretraining.py:493: The name tf.app.run is deprecated. Please use tf.compat.v1.app.run instead.
+00:00:03 
+00:00:03 W0803 01:13:24.074811 140596524181312 deprecation_wrapper.py:119] From /root/w266-final/bert/run_pretraining.py:407: The name tf.logging.set_verbosity is deprecated. Please use tf.compat.v1.logging.set_verbosity instead.
+00:00:03 
+00:00:03 W0803 01:13:24.074979 140596524181312 deprecation_wrapper.py:119] From /root/w266-final/bert/run_pretraining.py:407: The name tf.logging.INFO is deprecated. Please use tf.compat.v1.logging.INFO instead.
+00:00:03 
+00:00:03 W0803 01:13:24.075161 140596524181312 deprecation_wrapper.py:119] From /root/w266-final/bert/modeling.py:93: The name tf.gfile.GFile is deprecated. Please use tf.io.gfile.GFile instead.
+00:00:03 
+00:00:03 W0803 01:13:24.075873 140596524181312 deprecation_wrapper.py:119] From /root/w266-final/bert/run_pretraining.py:414: The name tf.gfile.MakeDirs is deprecated. Please use tf.io.gfile.makedirs instead.
+00:00:03 
+00:00:03 W0803 01:13:24.076079 140596524181312 deprecation_wrapper.py:119] From /root/w266-final/bert/run_pretraining.py:418: The name tf.gfile.Glob is deprecated. Please use tf.io.gfile.glob instead.
+00:00:03 
+00:00:03 W0803 01:13:24.077722 140596524181312 deprecation_wrapper.py:119] From /root/w266-final/bert/run_pretraining.py:420: The name tf.logging.info is deprecated. Please use tf.compat.v1.logging.info instead.
+00:00:03 
+00:00:03 I0803 01:13:24.077846 140596524181312 run_pretraining.py:420] *** Input Files ***
+00:00:03 I0803 01:13:24.077946 140596524181312 run_pretraining.py:422]   /root/w266-final/eval/2019/2019.tfrecord.05-128-20
+00:00:03 I0803 01:13:24.078038 140596524181312 run_pretraining.py:422]   /root/w266-final/eval/2019/2019.tfrecord.06-128-20
+00:00:03 I0803 01:13:24.078125 140596524181312 run_pretraining.py:422]   /root/w266-final/eval/2019/2019.tfrecord.04-128-20
+00:00:03 I0803 01:13:24.078207 140596524181312 run_pretraining.py:422]   /root/w266-final/eval/2019/2019.tfrecord.01-128-20
+00:00:03 I0803 01:13:24.078289 140596524181312 run_pretraining.py:422]   /root/w266-final/eval/2019/2019.tfrecord.00-128-20
+00:00:03 I0803 01:13:24.078369 140596524181312 run_pretraining.py:422]   /root/w266-final/eval/2019/2019.tfrecord.07-128-20
+00:00:03 I0803 01:13:24.078450 140596524181312 run_pretraining.py:422]   /root/w266-final/eval/2019/2019.tfrecord.03-128-20
+00:00:03 I0803 01:13:24.078538 140596524181312 run_pretraining.py:422]   /root/w266-final/eval/2019/2019.tfrecord.02-128-20

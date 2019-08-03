@@ -61,17 +61,25 @@ def to_tfrec(chunkFile, tfrecFile) :
     # max_seq = 512
     # max_pre = 80
 
-    command = f"nohup python3 -W ignore create_pretraining_data.py \
-            --input_file={chunkFile} \
-            --output_file={tfrecFile}-{max_seq}-{max_pre} \
-            --vocab_file=vocab.txt \
-            --do_lower_case=True \
-            --do_whole_word_mask=True \
-            --max_predictions_per_seq={max_pre} \
-            --max_seq_length={max_seq} \
-            --masked_lm_prob=0.15 \
-            --random_seed=42 \
-            --dupe_factor=5 &"
+    if  True :
+
+        command  = f"nohup python3 -W ignore create_pretraining_data.py"
+        command += f" --output_file={tfrecFile}-{max_seq}-{max_pre}"
+
+    else :
+
+        command  = f"nohup python3 -W ignore create_sentiment_data.py"
+        command += f" --output_file={tfrecFile}-{max_seq}-{max_pre}-sentiment"
+
+    command += f" --input_file={chunkFile}"
+    command += f" --vocab_file=vocab.txt"
+    command += f" --do_lower_case=True"
+    command += f" --do_whole_word_mask=True"
+    command += f" --max_predictions_per_seq={max_pre}"
+    command += f" --max_seq_length={max_seq}"
+    command += f" --masked_lm_prob=0.15"
+    command += f" --random_seed=42"
+    command += f" --dupe_factor=5 &"
 
     system(command)
 
@@ -103,6 +111,5 @@ if __name__ == '__main__':
     for chunk in chunks :
         tfrec  = chunk.replace('.chunk', '.tfrecord')
 
-        if not exists(tfrec) : to_tfrec(chunk, tfrec)
-
+        if not glob(f'{tfrec}.*') : to_tfrec(chunk, tfrec)
 
