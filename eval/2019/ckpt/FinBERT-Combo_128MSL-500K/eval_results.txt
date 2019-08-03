@@ -1,0 +1,6 @@
+global_step = 500000
+loss = 1.6192665
+masked_lm_accuracy = 0.74949026
+masked_lm_loss = 1.2073606
+next_sentence_accuracy = 0.95
+next_sentence_loss = 0.41416797

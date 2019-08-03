@@ -109,12 +109,13 @@ echo -n "ASK : Looks Good ? (Press Enter to Continue or Ctrl+C to Exit) "
 read
 echo
 
+mkdir -p ${OUT}
+
 echo ${FIN}  > ${LOG}
 echo ${@}   >> ${LOG}
 echo ${CMD} >> ${LOG}
 echo        >> ${LOG}
 
-mkdir -p ${OUT}
 cd ${bert}
 
 ${CMD} |& ${ts} -s | tee ${LOG}

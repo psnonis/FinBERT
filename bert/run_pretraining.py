@@ -23,6 +23,8 @@ import modeling
 import optimization
 import tensorflow as tf
 
+tf.reset_default_graph()
+
 flags = tf.flags
 
 FLAGS = flags.FLAGS
