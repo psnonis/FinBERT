@@ -1,0 +1,320 @@
+00:00:02 WARNING: Logging before flag parsing goes to stderr.
+00:00:02 W0803 19:46:29.970112 140230708111168 deprecation_wrapper.py:119] From /root/w266-final/bert/optimization.py:87: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
+00:00:02 
+00:00:02 W0803 19:46:29.970454 140230708111168 deprecation_wrapper.py:119] From /root/w266-final/bert/run_pretraining.py:26: The name tf.reset_default_graph is deprecated. Please use tf.compat.v1.reset_default_graph instead.
+00:00:02 
+00:00:02 W0803 19:46:29.971429 140230708111168 deprecation_wrapper.py:119] From /root/w266-final/bert/run_pretraining.py:495: The name tf.app.run is deprecated. Please use tf.compat.v1.app.run instead.
+00:00:02 
+00:00:02 W0803 19:46:29.972036 140230708111168 deprecation_wrapper.py:119] From /root/w266-final/bert/run_pretraining.py:409: The name tf.logging.set_verbosity is deprecated. Please use tf.compat.v1.logging.set_verbosity instead.
+00:00:02 
+00:00:02 W0803 19:46:29.972207 140230708111168 deprecation_wrapper.py:119] From /root/w266-final/bert/run_pretraining.py:409: The name tf.logging.INFO is deprecated. Please use tf.compat.v1.logging.INFO instead.
+00:00:02 
+00:00:02 W0803 19:46:29.972398 140230708111168 deprecation_wrapper.py:119] From /root/w266-final/bert/modeling.py:93: The name tf.gfile.GFile is deprecated. Please use tf.io.gfile.GFile instead.
+00:00:02 
+00:00:02 W0803 19:46:29.973132 140230708111168 deprecation_wrapper.py:119] From /root/w266-final/bert/run_pretraining.py:416: The name tf.gfile.MakeDirs is deprecated. Please use tf.io.gfile.makedirs instead.
+00:00:02 
+00:00:02 W0803 19:46:29.973352 140230708111168 deprecation_wrapper.py:119] From /root/w266-final/bert/run_pretraining.py:420: The name tf.gfile.Glob is deprecated. Please use tf.io.gfile.glob instead.
+00:00:02 
+00:00:03 W0803 19:46:30.045513 140230708111168 deprecation_wrapper.py:119] From /root/w266-final/bert/run_pretraining.py:422: The name tf.logging.info is deprecated. Please use tf.compat.v1.logging.info instead.
+00:00:03 
+00:00:03 I0803 19:46:30.045719 140230708111168 run_pretraining.py:422] *** Input Files ***
+00:00:03 I0803 19:46:30.045818 140230708111168 run_pretraining.py:424]   /root/w266-final/eval/10-q/data/2018.tfrecord.sm-128-20
+00:00:03 W0803 19:46:30.587053 140230708111168 lazy_loader.py:50] 
+00:00:03 The TensorFlow contrib module will not be included in TensorFlow 2.0.
+00:00:03 For more information, please see:
+00:00:03   * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+00:00:03   * https://github.com/tensorflow/addons
+00:00:03   * https://github.com/tensorflow/io (for I/O related ops)
+00:00:03 If you depend on functionality not listed there, please file an issue.
+00:00:03 
+00:00:03 W0803 19:46:30.587702 140230708111168 estimator.py:1984] Estimator's model_fn (<function model_fn_builder.<locals>.model_fn at 0x7f89ccb56e18>) includes params argument, but params are not passed to Estimator.
+00:00:03 I0803 19:46:30.589009 140230708111168 estimator.py:209] Using config: {'_model_dir': '/root/w266-final/eval/10-q/ckpt/FinBERT-Combo_128MSL-500K', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': 1000, '_save_checkpoints_secs': None, '_session_config': allow_soft_placement: true
+00:00:03 graph_options {
+00:00:03   rewrite_options {
+00:00:03     meta_optimizer_iterations: ONE
+00:00:03   }
+00:00:03 }
+00:00:03 , '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': None, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_service': None, '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7f89bf337fd0>, '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1, '_tpu_config': TPUConfig(iterations_per_loop=1000, num_shards=8, num_cores_per_replica=None, per_host_input_for_training=3, tpu_job_name=None, initial_infeed_sleep_secs=None, input_partition_dims=None, eval_training_input_configuration=2), '_cluster': None}
+00:00:03 I0803 19:46:30.589664 140230708111168 tpu_context.py:209] _TPUContext: eval_on_tpu True
+00:00:03 W0803 19:46:30.590171 140230708111168 tpu_context.py:211] eval_on_tpu ignored because use_tpu is False.
+00:00:03 I0803 19:46:30.590301 140230708111168 run_pretraining.py:471] ***** Running evaluation *****
+00:00:03 I0803 19:46:30.590392 140230708111168 run_pretraining.py:472]   Batch size = 8
+00:00:03 W0803 19:46:30.608953 140230708111168 deprecation_wrapper.py:119] From /root/w266-final/bert/run_pretraining.py:339: The name tf.FixedLenFeature is deprecated. Please use tf.io.FixedLenFeature instead.
+00:00:03 
+00:00:03 W0803 19:46:30.635397 140230708111168 deprecation.py:323] From /root/w266-final/bert/run_pretraining.py:387: map_and_batch (from tensorflow.contrib.data.python.ops.batching) is deprecated and will be removed in a future version.
+00:00:03 Instructions for updating:
+00:00:03 Use `tf.data.experimental.map_and_batch(...)`.
+00:00:03 W0803 19:46:30.635562 140230708111168 deprecation.py:323] From /usr/local/lib/python3.6/dist-packages/tensorflow/contrib/data/python/ops/batching.py:273: map_and_batch (from tensorflow.python.data.experimental.ops.batching) is deprecated and will be removed in a future version.
+00:00:03 Instructions for updating:
+00:00:03 Use `tf.data.Dataset.map(map_func, num_parallel_calls)` followed by `tf.data.Dataset.batch(batch_size, drop_remainder)`. Static tf.data optimizations will take care of using the fused implementation.
+00:00:03 W0803 19:46:30.637259 140230708111168 deprecation_wrapper.py:119] From /root/w266-final/bert/run_pretraining.py:395: The name tf.parse_single_example is deprecated. Please use tf.io.parse_single_example instead.
+00:00:03 
+00:00:03 W0803 19:46:30.644446 140230708111168 deprecation.py:323] From /root/w266-final/bert/run_pretraining.py:402: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+00:00:03 Instructions for updating:
+00:00:03 Use `tf.cast` instead.
+00:00:03 I0803 19:46:30.675056 140230708111168 estimator.py:1145] Calling model_fn.
+00:00:03 I0803 19:46:30.675284 140230708111168 tpu_estimator.py:2965] Running eval on CPU
+00:00:03 I0803 19:46:30.675727 140230708111168 run_pretraining.py:119] *** Features ***
+00:00:03 I0803 19:46:30.675902 140230708111168 run_pretraining.py:121]   name = input_ids, shape = (8, 128)
+00:00:03 I0803 19:46:30.676049 140230708111168 run_pretraining.py:121]   name = input_mask, shape = (8, 128)
+00:00:03 I0803 19:46:30.676185 140230708111168 run_pretraining.py:121]   name = masked_lm_ids, shape = (8, 20)
+00:00:03 I0803 19:46:30.676304 140230708111168 run_pretraining.py:121]   name = masked_lm_positions, shape = (8, 20)
+00:00:03 I0803 19:46:30.676420 140230708111168 run_pretraining.py:121]   name = masked_lm_weights, shape = (8, 20)
+00:00:03 I0803 19:46:30.676533 140230708111168 run_pretraining.py:121]   name = next_sentence_labels, shape = (8, 1)
+00:00:03 I0803 19:46:30.676656 140230708111168 run_pretraining.py:121]   name = segment_ids, shape = (8, 128)
+00:00:03 W0803 19:46:30.676900 140230708111168 deprecation_wrapper.py:119] From /root/w266-final/bert/modeling.py:171: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.
+00:00:03 
+00:00:03 W0803 19:46:30.679002 140230708111168 deprecation_wrapper.py:119] From /root/w266-final/bert/modeling.py:409: The name tf.get_variable is deprecated. Please use tf.compat.v1.get_variable instead.
+00:00:03 
+00:00:03 W0803 19:46:30.762246 140230708111168 deprecation.py:323] From /root/w266-final/bert/modeling.py:671: dense (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+00:00:03 Instructions for updating:
+00:00:03 Use keras.layers.dense instead.
+00:00:06 I0803 19:46:33.830190 140230708111168 run_pretraining.py:169] **** Trainable Variables ****
+00:00:06 I0803 19:46:33.830443 140230708111168 run_pretraining.py:175]   name = bert/embeddings/word_embeddings:0, shape = (30522, 768)
+00:00:06 I0803 19:46:33.830641 140230708111168 run_pretraining.py:175]   name = bert/embeddings/token_type_embeddings:0, shape = (2, 768)
+00:00:06 I0803 19:46:33.830797 140230708111168 run_pretraining.py:175]   name = bert/embeddings/position_embeddings:0, shape = (512, 768)
+00:00:06 I0803 19:46:33.830924 140230708111168 run_pretraining.py:175]   name = bert/embeddings/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.831052 140230708111168 run_pretraining.py:175]   name = bert/embeddings/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.831169 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_0/attention/self/query/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.831297 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_0/attention/self/query/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.831421 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_0/attention/self/key/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.831535 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_0/attention/self/key/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.831658 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_0/attention/self/value/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.831771 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_0/attention/self/value/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.831892 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_0/attention/output/dense/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.832008 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_0/attention/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.832115 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_0/attention/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.832235 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_0/attention/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.832345 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_0/intermediate/dense/kernel:0, shape = (768, 3072)
+00:00:06 I0803 19:46:33.832471 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_0/intermediate/dense/bias:0, shape = (3072,)
+00:00:06 I0803 19:46:33.832593 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_0/output/dense/kernel:0, shape = (3072, 768)
+00:00:06 I0803 19:46:33.832716 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_0/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.832825 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_0/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.832932 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_0/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.833042 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_1/attention/self/query/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.833179 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_1/attention/self/query/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.833302 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_1/attention/self/key/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.833414 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_1/attention/self/key/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.833542 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_1/attention/self/value/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.833672 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_1/attention/self/value/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.833784 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_1/attention/output/dense/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.833921 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_1/attention/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.834042 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_1/attention/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.834160 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_1/attention/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.834279 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_1/intermediate/dense/kernel:0, shape = (768, 3072)
+00:00:06 I0803 19:46:33.834390 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_1/intermediate/dense/bias:0, shape = (3072,)
+00:00:06 I0803 19:46:33.834500 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_1/output/dense/kernel:0, shape = (3072, 768)
+00:00:06 I0803 19:46:33.834649 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_1/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.834776 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_1/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.834895 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_1/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.835015 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_2/attention/self/query/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.835127 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_2/attention/self/query/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.835236 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_2/attention/self/key/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.835346 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_2/attention/self/key/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.835453 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_2/attention/self/value/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.835573 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_2/attention/self/value/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.835691 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_2/attention/output/dense/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.835816 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_2/attention/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.835925 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_2/attention/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.836031 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_2/attention/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.836151 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_2/intermediate/dense/kernel:0, shape = (768, 3072)
+00:00:06 I0803 19:46:33.836280 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_2/intermediate/dense/bias:0, shape = (3072,)
+00:00:06 I0803 19:46:33.836401 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_2/output/dense/kernel:0, shape = (3072, 768)
+00:00:06 I0803 19:46:33.836512 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_2/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.836619 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_2/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.836746 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_2/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.836868 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_3/attention/self/query/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.836992 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_3/attention/self/query/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.837104 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_3/attention/self/key/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.837213 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_3/attention/self/key/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.837322 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_3/attention/self/value/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.837432 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_3/attention/self/value/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.837550 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_3/attention/output/dense/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.837666 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_3/attention/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.837774 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_3/attention/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.837890 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_3/attention/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.837999 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_3/intermediate/dense/kernel:0, shape = (768, 3072)
+00:00:06 I0803 19:46:33.838120 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_3/intermediate/dense/bias:0, shape = (3072,)
+00:00:06 I0803 19:46:33.838230 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_3/output/dense/kernel:0, shape = (3072, 768)
+00:00:06 I0803 19:46:33.838340 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_3/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.838457 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_3/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.838566 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_3/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.838717 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_4/attention/self/query/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.838845 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_4/attention/self/query/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.838956 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_4/attention/self/key/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.839087 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_4/attention/self/key/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.839209 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_4/attention/self/value/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.839322 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_4/attention/self/value/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.839431 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_4/attention/output/dense/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.839551 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_4/attention/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.839660 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_4/attention/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.839766 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_4/attention/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.839885 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_4/intermediate/dense/kernel:0, shape = (768, 3072)
+00:00:06 I0803 19:46:33.839997 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_4/intermediate/dense/bias:0, shape = (3072,)
+00:00:06 I0803 19:46:33.840115 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_4/output/dense/kernel:0, shape = (3072, 768)
+00:00:06 I0803 19:46:33.840247 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_4/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.840367 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_4/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.840474 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_4/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.840594 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_5/attention/self/query/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.840717 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_5/attention/self/query/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.840826 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_5/attention/self/key/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.840947 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_5/attention/self/key/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.841073 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_5/attention/self/value/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.841197 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_5/attention/self/value/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.841308 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_5/attention/output/dense/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.841417 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_5/attention/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.841533 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_5/attention/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.841651 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_5/attention/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.841773 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_5/intermediate/dense/kernel:0, shape = (768, 3072)
+00:00:06 I0803 19:46:33.841910 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_5/intermediate/dense/bias:0, shape = (3072,)
+00:00:06 I0803 19:46:33.842031 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_5/output/dense/kernel:0, shape = (3072, 768)
+00:00:06 I0803 19:46:33.842143 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_5/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.842248 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_5/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.842354 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_5/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.842461 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_6/attention/self/query/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.842570 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_6/attention/self/query/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.842725 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_6/attention/self/key/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.842851 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_6/attention/self/key/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.842972 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_6/attention/self/value/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.843157 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_6/attention/self/value/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.843282 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_6/attention/output/dense/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.843405 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_6/attention/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.843523 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_6/attention/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.843640 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_6/attention/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.843758 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_6/intermediate/dense/kernel:0, shape = (768, 3072)
+00:00:06 I0803 19:46:33.843897 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_6/intermediate/dense/bias:0, shape = (3072,)
+00:00:06 I0803 19:46:33.844011 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_6/output/dense/kernel:0, shape = (3072, 768)
+00:00:06 I0803 19:46:33.844122 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_6/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.844230 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_6/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.844335 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_6/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.844455 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_7/attention/self/query/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.844577 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_7/attention/self/query/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.844694 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_7/attention/self/key/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.844805 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_7/attention/self/key/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.844913 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_7/attention/self/value/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.845033 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_7/attention/self/value/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.845153 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_7/attention/output/dense/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.845274 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_7/attention/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.845393 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_7/attention/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.845512 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_7/attention/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.845622 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_7/intermediate/dense/kernel:0, shape = (768, 3072)
+00:00:06 I0803 19:46:33.845733 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_7/intermediate/dense/bias:0, shape = (3072,)
+00:00:06 I0803 19:46:33.845841 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_7/output/dense/kernel:0, shape = (3072, 768)
+00:00:06 I0803 19:46:33.845962 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_7/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.846071 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_7/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.846177 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_7/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.846295 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_8/attention/self/query/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.846408 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_8/attention/self/query/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.846516 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_8/attention/self/key/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.846656 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_8/attention/self/key/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.846784 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_8/attention/self/value/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.846907 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_8/attention/self/value/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.847029 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_8/attention/output/dense/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.847153 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_8/attention/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.847271 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_8/attention/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.847380 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_8/attention/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.847523 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_8/intermediate/dense/kernel:0, shape = (768, 3072)
+00:00:06 I0803 19:46:33.847648 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_8/intermediate/dense/bias:0, shape = (3072,)
+00:00:06 I0803 19:46:33.847774 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_8/output/dense/kernel:0, shape = (3072, 768)
+00:00:06 I0803 19:46:33.847897 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_8/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.848006 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_8/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.848127 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_8/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.848249 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_9/attention/self/query/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.848378 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_9/attention/self/query/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.848501 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_9/attention/self/key/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.848621 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_9/attention/self/key/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.848744 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_9/attention/self/value/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.848869 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_9/attention/self/value/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.848992 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_9/attention/output/dense/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.849114 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_9/attention/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.849232 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_9/attention/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.849350 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_9/attention/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.849460 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_9/intermediate/dense/kernel:0, shape = (768, 3072)
+00:00:06 I0803 19:46:33.849570 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_9/intermediate/dense/bias:0, shape = (3072,)
+00:00:06 I0803 19:46:33.849691 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_9/output/dense/kernel:0, shape = (3072, 768)
+00:00:06 I0803 19:46:33.849813 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_9/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.849930 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_9/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.850037 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_9/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.850156 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_10/attention/self/query/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.850284 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_10/attention/self/query/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.850403 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_10/attention/self/key/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.850524 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_10/attention/self/key/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.850672 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_10/attention/self/value/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.850801 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_10/attention/self/value/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.850924 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_10/attention/output/dense/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.851053 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_10/attention/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.851164 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_10/attention/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.851282 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_10/attention/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.851401 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_10/intermediate/dense/kernel:0, shape = (768, 3072)
+00:00:06 I0803 19:46:33.851513 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_10/intermediate/dense/bias:0, shape = (3072,)
+00:00:06 I0803 19:46:33.851632 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_10/output/dense/kernel:0, shape = (3072, 768)
+00:00:06 I0803 19:46:33.851754 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_10/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.851862 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_10/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.851967 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_10/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.852086 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_11/attention/self/query/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.852196 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_11/attention/self/query/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.852304 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_11/attention/self/key/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.852423 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_11/attention/self/key/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.852531 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_11/attention/self/value/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.852650 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_11/attention/self/value/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.852768 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_11/attention/output/dense/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.852898 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_11/attention/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.853014 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_11/attention/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.853137 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_11/attention/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.853255 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_11/intermediate/dense/kernel:0, shape = (768, 3072)
+00:00:06 I0803 19:46:33.853375 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_11/intermediate/dense/bias:0, shape = (3072,)
+00:00:06 I0803 19:46:33.853493 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_11/output/dense/kernel:0, shape = (3072, 768)
+00:00:06 I0803 19:46:33.853603 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_11/output/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.853719 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_11/output/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.853842 140230708111168 run_pretraining.py:175]   name = bert/encoder/layer_11/output/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.853962 140230708111168 run_pretraining.py:175]   name = bert/pooler/dense/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.854084 140230708111168 run_pretraining.py:175]   name = bert/pooler/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.854191 140230708111168 run_pretraining.py:175]   name = cls/predictions/transform/dense/kernel:0, shape = (768, 768)
+00:00:06 I0803 19:46:33.854309 140230708111168 run_pretraining.py:175]   name = cls/predictions/transform/dense/bias:0, shape = (768,)
+00:00:06 I0803 19:46:33.854430 140230708111168 run_pretraining.py:175]   name = cls/predictions/transform/LayerNorm/beta:0, shape = (768,)
+00:00:06 I0803 19:46:33.854537 140230708111168 run_pretraining.py:175]   name = cls/predictions/transform/LayerNorm/gamma:0, shape = (768,)
+00:00:06 I0803 19:46:33.854681 140230708111168 run_pretraining.py:175]   name = cls/predictions/output_bias:0, shape = (30522,)
+00:00:06 I0803 19:46:33.854814 140230708111168 run_pretraining.py:175]   name = cls/seq_relationship/output_weights:0, shape = (2, 768)
+00:00:06 I0803 19:46:33.854943 140230708111168 run_pretraining.py:175]   name = cls/seq_relationship/output_bias:0, shape = (2,)
+00:00:06 W0803 19:46:33.863240 140230708111168 deprecation_wrapper.py:119] From /root/w266-final/bert/run_pretraining.py:200: The name tf.metrics.accuracy is deprecated. Please use tf.compat.v1.metrics.accuracy instead.
+00:00:06 
+00:00:06 W0803 19:46:33.885536 140230708111168 deprecation_wrapper.py:119] From /root/w266-final/bert/run_pretraining.py:204: The name tf.metrics.mean is deprecated. Please use tf.compat.v1.metrics.mean instead.
+00:00:06 
+00:00:06 I0803 19:46:33.948708 140230708111168 estimator.py:1147] Done calling model_fn.
+00:00:06 I0803 19:46:33.975703 140230708111168 evaluation.py:255] Starting evaluation at 2019-08-03T19:46:33Z
+00:00:07 W0803 19:46:34.206315 140230708111168 deprecation.py:323] From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/array_ops.py:1354: add_dispatch_support.<locals>.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+00:00:07 Instructions for updating:
+00:00:07 Use tf.where in 2.0, which has the same broadcast rule as np.where
+00:00:07 I0803 19:46:34.690601 140230708111168 monitored_session.py:240] Graph was finalized.
+00:00:07 2019-08-03 19:46:34.691074: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+00:00:07 2019-08-03 19:46:34.700644: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2000024999 Hz
+00:00:07 2019-08-03 19:46:34.701422: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4d365c0 executing computations on platform Host. Devices:
+00:00:07 2019-08-03 19:46:34.701455: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): <undefined>, <undefined>
+00:00:07 W0803 19:46:34.702452 140230708111168 deprecation.py:323] From /usr/local/lib/python3.6/dist-packages/tensorflow/python/training/saver.py:1276: checkpoint_exists (from tensorflow.python.training.checkpoint_management) is deprecated and will be removed in a future version.
+00:00:07 Instructions for updating:
+00:00:07 Use standard file APIs to check for files with this prefix.
+00:00:07 I0803 19:46:34.704091 140230708111168 saver.py:1280] Restoring parameters from /root/w266-final/eval/10-q/ckpt/FinBERT-Combo_128MSL-500K/model.ckpt-500000
+00:00:07 2019-08-03 19:46:34.999148: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1412] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+00:00:13 I0803 19:46:40.745792 140230708111168 session_manager.py:500] Running local_init_op.
+00:00:13 I0803 19:46:40.799868 140230708111168 session_manager.py:502] Done running local_init_op.
+00:00:22 I0803 19:46:49.648432 140230708111168 evaluation.py:167] Evaluation [10/100]
+00:00:30 I0803 19:46:57.548814 140230708111168 evaluation.py:167] Evaluation [20/100]
+00:00:38 I0803 19:47:05.505695 140230708111168 evaluation.py:167] Evaluation [30/100]
+00:00:46 I0803 19:47:13.449385 140230708111168 evaluation.py:167] Evaluation [40/100]
+00:00:54 I0803 19:47:21.318110 140230708111168 evaluation.py:167] Evaluation [50/100]
+00:01:02 I0803 19:47:29.224847 140230708111168 evaluation.py:167] Evaluation [60/100]
+00:01:10 I0803 19:47:37.137549 140230708111168 evaluation.py:167] Evaluation [70/100]
+00:01:18 I0803 19:47:45.033963 140230708111168 evaluation.py:167] Evaluation [80/100]
+00:01:25 I0803 19:47:52.982511 140230708111168 evaluation.py:167] Evaluation [90/100]
+00:01:33 I0803 19:48:00.858261 140230708111168 evaluation.py:167] Evaluation [100/100]
+00:01:33 I0803 19:48:00.953661 140230708111168 evaluation.py:275] Finished evaluation at 2019-08-03-19:48:00
+00:01:33 I0803 19:48:00.954060 140230708111168 estimator.py:2039] Saving dict for global step 500000: global_step = 500000, loss = 1.6183211, masked_lm_accuracy = 0.75329566, masked_lm_loss = 1.2141438, next_sentence_accuracy = 0.94375, next_sentence_loss = 0.40399578
+00:01:34 I0803 19:48:01.560208 140230708111168 estimator.py:2099] Saving 'checkpoint_path' summary for global step 500000: /root/w266-final/eval/10-q/ckpt/FinBERT-Combo_128MSL-500K/model.ckpt-500000
+00:01:34 I0803 19:48:01.561039 140230708111168 error_handling.py:96] evaluation_loop marked as finished
+00:01:34 I0803 19:48:01.561300 140230708111168 run_pretraining.py:485] ***** Eval results *****
+00:01:34 I0803 19:48:01.561471 140230708111168 run_pretraining.py:487]   global_step = 500000
+00:01:34 I0803 19:48:01.561727 140230708111168 run_pretraining.py:487]   loss = 1.6183211
+00:01:34 I0803 19:48:01.561896 140230708111168 run_pretraining.py:487]   masked_lm_accuracy = 0.75329566
+00:01:34 I0803 19:48:01.562058 140230708111168 run_pretraining.py:487]   masked_lm_loss = 1.2141438
+00:01:34 I0803 19:48:01.562210 140230708111168 run_pretraining.py:487]   next_sentence_accuracy = 0.94375
+00:01:34 I0803 19:48:01.562359 140230708111168 run_pretraining.py:487]   next_sentence_loss = 0.40399578
