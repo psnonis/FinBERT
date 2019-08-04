@@ -1,4 +1,5 @@
-# MIDS w266 Final Project
+# FinBERT: pre-trained model on SEC filings for financial NLP tasks.
+  Vinicio DeSola1, Kevin Hanna1, Pri Nonis
 
 ## MOTIVATIONS
 
