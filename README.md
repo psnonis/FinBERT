@@ -1,4 +1,4 @@
-# FinBERT: pre-trained on SEC filings for financial NLP tasks.
+# FinBERT: Pre-Trained on SEC Filings for Financial NLP Tasks
   Vinicio DeSola, Kevin Hanna, Pri Nonis
 
 ## MOTIVATIONS
