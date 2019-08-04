@@ -1,0 +1,6 @@
+sec-edgar-downloader==2.1.0
+google-cloud-bigquery
+google-cloud-storage
+beautifulsoup4
+lxml
+pandas
