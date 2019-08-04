@@ -101,12 +101,12 @@ if __name__ == '__main__':
 
     chunks = sorted(glob((argv + ['*'])[1] + '.chunk'))
 
-    for chunk in chunks :
-        split  = chunk.replace('.chunk', '.chunk.00')
+#     for chunk in chunks :
+#         split  = chunk.replace('.chunk', '.chunk.00')
 
-        if not exists(split) : system(f'split -n 8 -d {chunk} {chunk}.')
+#         if not exists(split) : system(f'split -n 8 -d {chunk} {chunk}.')
 
-    chunks = sorted(glob((argv + ['*'])[1] + '.chunk.*'))
+#     chunks = sorted(glob((argv + ['*'])[1] + '.chunk.*'))
 
     for chunk in chunks :
         tfrec  = chunk.replace('.chunk', '.tfrecord')
