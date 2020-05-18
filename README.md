@@ -1,6 +1,9 @@
 # FinBERT: Pre-Trained on SEC Filings for Financial NLP Tasks
   Vinicio DeSola, Kevin Hanna, Pri Nonis
 
+## MODEL WEIGHTS
+- https://drive.google.com/drive/folders/1rcRXZhb3JLY3A_kIO8gMk8jacRyR-Ik6?usp=sharing
+
 ## MOTIVATIONS
 
 <b>Goal 1</b> `FinBERT-Prime_128MSL-500K+512MSL-10K vs BERT`
