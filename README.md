@@ -4,6 +4,9 @@
 ## MODEL WEIGHTS
 - https://drive.google.com/drive/folders/1rcRXZhb3JLY3A_kIO8gMk8jacRyR-Ik6?usp=sharing
 
+## PUBLICATION
+- https://www.researchgate.net/publication/334974348_FinBERT_pre-trained_model_on_SEC_filings_for_financial_natural_language_tasks
+
 ## MOTIVATIONS
 
 <b>Goal 1</b> `FinBERT-Prime_128MSL-500K+512MSL-10K vs BERT`
